@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0054)file:///C:/Users/nk0712/Downloads/enkou_app%20(8).html -->
+<!-- saved from url=(0055)file:///C:/Users/nk0712/Downloads/enkou_app%20(10).html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -728,7 +728,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     <div class="settings-section" style="border:1.5px solid #3ecf8e;">
       <div class="settings-title" style="color:#1a7a4a;">☁️ Supabase（端末間データ共有）</div>
       <div style="margin-bottom:8px;display:flex;align-items:center;gap:8px;">
-        <span id="supabaseStatus" class="status-ng">未接続</span>
+        <span id="supabaseStatus" class="status-ok">設定済み ✓</span>
       </div>
       <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;">
         社用スマホ・PC・プライベートスマホでデータを共有できます。
@@ -935,7 +935,7 @@ function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 
 /* ════ メモ ════ */
 function loadMemos(){try{memos=JSON.parse(localStorage.getItem('enkou_memos')||'[]');}catch{memos=[];}}
-function saveMemos(){localStorage.setItem('enkou_memos',JSON.stringify(memos));}
+function saveMemos(){localStorage.setItem('enkou_memos',JSON.stringify(memos));autoSyncToSupabase();}
 
 function pickMemoCat(cat,btn){
   curMemoCat=cat;
@@ -1066,7 +1066,7 @@ function deleteMemoNote(id){
   saveMemos();renderMemoList();renderMemoPage();
 }
 
-function save(){localStorage.setItem(SK,JSON.stringify({tasks,apos}));}
+function save(){localStorage.setItem(SK,JSON.stringify({tasks,apos}));autoSyncToSupabase();}
 function load(){
   try{
     const d=JSON.parse(localStorage.getItem(SK)||'{}');
@@ -1867,6 +1867,13 @@ function fmtGmailDate(dateStr){
 }
 /* ════ SUPABASE ════ */
 let sbUrl='',sbKey='';
+let sbSyncTimer=null;
+
+function autoSyncToSupabase(){
+  if(!sbUrl||!sbKey)return;
+  clearTimeout(sbSyncTimer);
+  sbSyncTimer=setTimeout(()=>syncToSupabase(true),1500);
+}
 function loadSupabaseSettings(){
   sbUrl=localStorage.getItem('enkou_sb_url')||'';
   sbKey=localStorage.getItem('enkou_sb_key')||'';
@@ -1892,9 +1899,9 @@ async function saveSupabaseSettings(){
   }catch(e){showToast('接続エラー：'+e.message);}
 }
 function sbH(){return{'apikey':sbKey,'Authorization':`Bearer ${sbKey}`,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'};}
-async function syncToSupabase(){
-  if(!sbUrl||!sbKey){showToast('Supabase設定を完了してください');return;}
-  showToast('クラウドに保存中…');
+async function syncToSupabase(auto=false){
+  if(!sbUrl||!sbKey){if(!auto)showToast('Supabase設定を完了してください');return;}
+  if(!auto)showToast('クラウドに保存中…');
   try{
     const taskData=tasks.map(t=>({id:t.id,src:t.src||'',title:t.title||'',cust:t.cust||'',due:t.due||'',memo:t.memo||'',st:t.st||'todo',done:t.done||false,completed_at:t.completedAt||'',created:t.created||Date.now(),subs:t.subs||[]}));
     const apoData=apos.map(a=>({id:a.id,type:a.type||'',date:a.date||'',start_time:a.start||'',end_time:a.end||'',title:a.title||'',place:a.place||'',memo:a.memo||'',gcal_id:a.gcalId||''}));
@@ -1910,7 +1917,7 @@ async function syncToSupabase(){
       apoData.length?fetch(`${sbUrl}/rest/v1/apos`,{method:'POST',headers:sbH(),body:JSON.stringify(apoData)}):Promise.resolve(),
       memoData.length?fetch(`${sbUrl}/rest/v1/memos`,{method:'POST',headers:sbH(),body:JSON.stringify(memoData)}):Promise.resolve()
     ]);
-    showToast('✓ クラウドに保存しました');
+    showToast(auto?'☁ 同期済み':'✓ クラウドに保存しました');
   }catch(e){showToast('エラー：'+e.message);}
 }
 async function syncFromSupabase(){
