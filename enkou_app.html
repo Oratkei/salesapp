@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)file:///C:/Users/nk0712/Downloads/enkou_app_8.html -->
+<!-- saved from url=(0051)file:///C:/Users/nk0712/Downloads/enkou_app_10.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -246,10 +246,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 .status-ng{color:var(--red);font-weight:700;}
 
 /* OVERLAYS */
-.overlay{display:none;position:fixed;inset:0;background:rgba(20,18,14,.55);backdrop-filter:blur(3px);z-index:300;align-items:flex-end;justify-content:center;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(20,18,14,.55);z-index:300;align-items:flex-end;justify-content:center;}
 .overlay.open{display:flex;}
-.sheet{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:520px;padding:18px 18px 44px;animation:up .2s ease;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-@media(max-width:768px){.sheet{max-height:80vh;}}
+.sheet{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:520px;padding:18px 18px env(safe-area-inset-bottom,20px);animation:up .2s ease;max-height:85vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 @keyframes up{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
 .handle{width:30px;height:3px;background:var(--border2);border-radius:2px;margin:0 auto 14px;}
 .stitle{font-size:15px;font-weight:700;margin-bottom:14px;}
@@ -334,7 +333,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab(&#39;task&#39;)" id="tab-task">
-    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="display:none">0</span>
+    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="">2</span>
   </button>
   <button class="tab-btn" onclick="showTab(&#39;dev&#39;)" id="tab-dev">
     <span class="ti">🛠</span><span>開発</span><span class="badge" id="dev-badge" style="display:none">0</span>
@@ -361,40 +360,145 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   <div class="st-tabs">
     <div class="st-tab-list">
       <button class="st-tab t-todo active" onclick="switchSpTab(&#39;todo&#39;,this)">
-        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">0</span>
+        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">2</span>
       </button>
       <button class="st-tab t-doing" onclick="switchSpTab(&#39;doing&#39;,this)">
-        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">0</span>
+        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">1</span>
       </button>
       <button class="st-tab t-maker" onclick="switchSpTab(&#39;maker&#39;,this)">
-        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">0</span>
+        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">1</span>
       </button>
       <button class="st-tab t-customer" onclick="switchSpTab(&#39;customer&#39;,this)">
-        <span class="st-dot"></span><span>お客様</span><span class="st-cnt" id="sp-cnt-customer">0</span>
+        <span class="st-dot"></span><span>お客様</span><span class="st-cnt" id="sp-cnt-customer">1</span>
       </button>
     </div>
   </div>
 
   <!-- スマホ用縦ボード -->
-  <div class="sp-board" id="sp-board"></div>
+  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">✉️</span>
+      <div class="tct">さくら苑へ見積書を送付</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-mail">メール</span>
+      <span class="ccust">さくら苑</span>
+      <span class="cdue td">本日</span>
+    </div>
+    <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
+    <div class="status-move"><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;todo&#39;)" style="">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div><div class="tcard" id="tc_mne9qqhixyu1" draggable="true" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">💡</span>
+      <div class="tct">PVCグローブ価格をメーカーに確認</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhixyu1&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-self">自分発</span>
+      <span class="ccust">信越化学</span>
+      
+    </div>
+    
+    <div class="status-move"><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;todo&#39;)" style="">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div></div>
 
   <!-- PC用カンバン -->
   <div class="kanban-wrap">
     <div class="kanban-col kcol-todo" id="col-todo">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">0</span></div>
-      <div class="kbody" id="body-todo"></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">2</span></div>
+      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">✉️</span>
+      <div class="tct">さくら苑へ見積書を送付</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-mail">メール</span>
+      <span class="ccust">さくら苑</span>
+      <span class="cdue td">本日</span>
+    </div>
+    <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
+    <div class="status-move"><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;todo&#39;)" style="">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi9o8o&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div><div class="tcard" id="tc_mne9qqhixyu1" draggable="true" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">💡</span>
+      <div class="tct">PVCグローブ価格をメーカーに確認</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhixyu1&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-self">自分発</span>
+      <span class="ccust">信越化学</span>
+      
+    </div>
+    
+    <div class="status-move"><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;todo&#39;)" style="">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhixyu1&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div></div>
     </div>
     <div class="kanban-col kcol-doing" id="col-doing">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">0</span></div>
-      <div class="kbody" id="body-doing"></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">1</span></div>
+      <div class="kbody" id="body-doing"><div class="tcard" id="tc_mne9qqhii2pu" draggable="true" onclick="openTaskDet(&#39;mne9qqhii2pu&#39;)" data-id="mne9qqhii2pu" ondragstart="onDragStart(event,&#39;mne9qqhii2pu&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">📞</span>
+      <div class="tct">〇〇老健への折り返し電話</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhii2pu&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-tel">電話</span>
+      <span class="ccust">〇〇老健</span>
+      <span class="cdue td">本日</span>
+    </div>
+    
+    <div class="status-move"><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhii2pu&#39;,&#39;todo&#39;)" style="background:#fff1f0;color:#c0392b;border-color:#c0392b;">未対応</button><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhii2pu&#39;,&#39;doing&#39;)" style="">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhii2pu&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhii2pu&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div></div>
     </div>
     <div class="kanban-col kcol-maker" id="col-maker">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">0</span></div>
-      <div class="kbody" id="body-maker"></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">1</span></div>
+      <div class="kbody" id="body-maker"><div class="tcard" id="tc_mne9qqhij3bg" draggable="true" onclick="openTaskDet(&#39;mne9qqhij3bg&#39;)" data-id="mne9qqhij3bg" ondragstart="onDragStart(event,&#39;mne9qqhij3bg&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">📋</span>
+      <div class="tct">週報を渡邉さんに提出</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhij3bg&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-ins">社内指示</span>
+      <span class="ccust">社内</span>
+      <span class="cdue">4/1</span>
+    </div>
+    
+    <div class="status-move"><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhij3bg&#39;,&#39;todo&#39;)" style="background:#fff1f0;color:#c0392b;border-color:#c0392b;">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhij3bg&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhij3bg&#39;,&#39;maker&#39;)" style="">メーカー確認中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhij3bg&#39;,&#39;customer&#39;)" style="background:#e4f5ed;color:#1a7a4a;border-color:#1a7a4a;">お客様確認中</button></div>
+  </div></div>
     </div>
     <div class="kanban-col kcol-customer" id="col-customer">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">0</span></div>
-      <div class="kbody" id="body-customer"></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">1</span></div>
+      <div class="kbody" id="body-customer"><div class="tcard" id="tc_mne9qqhi6t8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi6t8o&#39;)" data-id="mne9qqhi6t8o" ondragstart="onDragStart(event,&#39;mne9qqhi6t8o&#39;)" ondragend="onDragEnd(event)">
+    <div class="tr1">
+      <span class="tbadge">🚗</span>
+      <div class="tct">△△特養 補助金申請書類の確認待ち</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi6t8o&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div class="tr2">
+      <span class="ctag ctag-visit">商談/訪問</span>
+      <span class="ccust">△△特養</span>
+      <span class="cdue">4/3</span>
+    </div>
+    
+    <div class="status-move"><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi6t8o&#39;,&#39;todo&#39;)" style="background:#fff1f0;color:#c0392b;border-color:#c0392b;">未対応</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi6t8o&#39;,&#39;doing&#39;)" style="background:#e8f2fb;color:#1d5fa8;border-color:#1d5fa8;">対応中</button><button class="smv" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi6t8o&#39;,&#39;maker&#39;)" style="background:#fdf4e0;color:#b07010;border-color:#b07010;">メーカー確認中</button><button class="smv active-st" disabled="" onclick="event.stopPropagation();moveStatus(&#39;mne9qqhi6t8o&#39;,&#39;customer&#39;)" style="">お客様確認中</button></div>
+  </div></div>
     </div>
   </div>
 </div>
@@ -421,14 +525,35 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   <div class="sched-page">
     <div class="week-nav">
       <button class="nav-btn" onclick="moveWeek(-1)">◀</button>
-      <span class="week-label" id="weekLabel"></span>
+      <span class="week-label" id="weekLabel">2026年3月</span>
       <div style="display:flex;gap:6px;">
         <button class="nav-btn" onclick="moveWeek(0)">今週</button>
         <button class="nav-btn" onclick="moveWeek(1)">▶</button>
       </div>
     </div>
-    <div class="week-grid" id="weekGrid"></div>
-    <div class="day-detail" id="dayDetail"></div>
+    <div class="week-grid" id="weekGrid"><div class="wday" onclick="selectDay(&#39;2026-03-30&#39;)" style="">
+      <div class="wday-name">月</div><div class="wday-num">30</div>
+      <div class="wday-events"></div>
+    </div><div class="wday today" onclick="selectDay(&#39;2026-03-31&#39;)" style="">
+      <div class="wday-circle">31</div>
+      <div class="wday-events"><div class="wday-evt" style="background:#fff1f0;color:#c0392b;">🔴 さくら苑へ見積書を送付</div></div>
+    </div><div class="wday" onclick="selectDay(&#39;2026-04-01&#39;)" style="">
+      <div class="wday-name">水</div><div class="wday-num">1</div>
+      <div class="wday-events"></div>
+    </div><div class="wday" onclick="selectDay(&#39;2026-04-02&#39;)" style="">
+      <div class="wday-name">木</div><div class="wday-num">2</div>
+      <div class="wday-events"></div>
+    </div><div class="wday" onclick="selectDay(&#39;2026-04-03&#39;)" style="">
+      <div class="wday-name">金</div><div class="wday-num">3</div>
+      <div class="wday-events"></div>
+    </div><div class="wday" onclick="selectDay(&#39;2026-04-04&#39;)" style="">
+      <div class="wday-name">土</div><div class="wday-num">4</div>
+      <div class="wday-events"></div>
+    </div><div class="wday" onclick="selectDay(&#39;2026-04-05&#39;)" style="">
+      <div class="wday-name">日</div><div class="wday-num">5</div>
+      <div class="wday-events"></div>
+    </div></div>
+    <div class="day-detail" id="dayDetail"><div class="day-detail-title">2026年3月31日（火）</div><div class="apo-list"><div style="font-size:12px;color:var(--text3);margin-bottom:10px;">予定なし</div></div><button class="add-apo-btn" onclick="openApo(&#39;2026-03-31&#39;)">＋ アポ・予定を追加</button><div style="font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.06em;margin-bottom:6px;">本日のタスク</div><div class="todo-day-list"><div class="todo-item"><span class="todo-txt">✉️ さくら苑へ見積書を送付</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div><div class="todo-item"><span class="todo-txt">📞 〇〇老健への折り返し電話</span><span class="todo-st" style="background:#e8f2fb;color:#1d5fa8;">対応中</span></div></div></div>
   </div>
 </div>
 
@@ -461,6 +586,29 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <input class="finp" id="apiKeyInput" type="password" placeholder="sk-ant-api03-..." style="margin-bottom:8px;">
       <button class="btn btn-p" style="flex:unset;width:100%;padding:10px;" onclick="saveApiKey()">保存する</button>
     </div>
+
+    <div class="settings-section" style="border:1.5px solid #333;">
+      <div class="settings-title" style="color:var(--text);">🐙 GitHub 自動プッシュ設定</div>
+      <div style="margin-bottom:8px;"><span id="ghStatus" class="status-ng">未設定</span></div>
+      <p style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;">
+        設定するとファイル更新時にGitHubへ自動反映されます。<br>
+        ① <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--blue);">github.com/settings/tokens</a> を開く<br>
+        ② 「Generate new token (classic)」<br>
+        ③ スコープ「repo」にチェック → 「Generate token」<br>
+        ④ 発行された <code style="background:var(--s2);padding:1px 4px;border-radius:3px;">ghp_...</code> を下に入力
+      </p>
+      <label class="flbl">GitHub Personal Access Token</label>
+      <input class="finp" id="ghTokenInput" type="password" placeholder="ghp_xxxxxxxxxxxx" style="margin-bottom:8px;">
+      <label class="flbl">GitHubユーザー名</label>
+      <input class="finp" id="ghUserInput" type="text" placeholder="例：oratkei" style="margin-bottom:8px;">
+      <label class="flbl">リポジトリ名</label>
+      <input class="finp" id="ghRepoInput" type="text" placeholder="例：sales-app" style="margin-bottom:8px;">
+      <label class="flbl">ファイル名</label>
+      <input class="finp" id="ghFileInput" type="text" placeholder="例：enkou_app.html" style="margin-bottom:8px;">
+      <button class="btn btn-p" style="flex:unset;width:100%;padding:10px;" onclick="saveGhSettings()">保存する</button>
+      <button class="btn btn-g" style="flex:unset;width:100%;padding:10px;margin-top:6px;" id="ghPushBtn" onclick="pushToGithub()" disabled="">⬆ 今すぐGitHubに反映</button>
+    </div>
+
     <div class="settings-section">
       <div class="settings-title">データ管理</div>
       <div style="display:flex;flex-direction:column;gap:8px;">
@@ -850,23 +998,31 @@ function setupTouchDrag(card,id){
 }
 
 /* 即記録：見積・問い合わせ専用 */
+const SHOW_LIMIT=5;
+const expandedCols={todo:false,doing:false,maker:false,customer:false};
+const expandedDone={todo:false,doing:false,maker:false,customer:false};
+
+function expandCol(k){expandedCols[k]=true;renderTasks();}
+function collapseCol(k){expandedCols[k]=false;renderTasks();}
+function toggleDoneSection(k){expandedDone[k]=!expandedDone[k];renderTasks();}
+
 function openCaptureType(type){
   curSrc=type==='見積'?'ins':'tel';
   curSt='todo';formSubs=[];
   document.getElementById('cs_icon').textContent=type==='見積'?'📋':'📞';
   document.getElementById('cs_label').textContent=type;
-  ['cs_title','cs_cust','cs_memo'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('cs_due').value=todayStr();
-  document.getElementById('sub_inp').value='';
+  ['cs_title','cs_cust','cs_memo'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  const dueEl=document.getElementById('cs_due');if(dueEl)dueEl.value=todayStr();
+  const subInp=document.getElementById('sub_inp');if(subInp)subInp.value='';
   document.getElementById('sub_list').innerHTML='';
   document.querySelectorAll('.stsel').forEach(b=>b.classList.toggle('on',b.dataset.st==='todo'));
-  openOv('captureOv');setTimeout(()=>document.getElementById('cs_title').focus(),250);
+  openOv('captureOv');
+  // PCのみフォーカス（スマホはキーボードで画面が押し上がるのを防ぐ）
+  if(window.innerWidth>768){setTimeout(()=>document.getElementById('cs_title').focus(),250);}
 }
-function openCapture(src){openCaptureType(src==='ins'?'見積':'問い合わせ');}
-
 function openCapture(src){
   curSrc=src;curSt='todo';formSubs=[];
-  const s=SRC[src];
+  const s=SRC[src]||SRC.self;
   document.getElementById('cs_icon').textContent=s.icon;
   document.getElementById('cs_label').textContent=s.label;
   ['cs_title','cs_cust','cs_memo'].forEach(id=>document.getElementById(id).value='');
@@ -882,8 +1038,18 @@ function renderFormSubList(){document.getElementById('sub_list').innerHTML=formS
 function saveCapture(){
   const title=document.getElementById('cs_title').value.trim();
   if(!title){document.getElementById('cs_title').focus();return;}
-  tasks.unshift({id:uid(),src:curSrc,title,cust:document.getElementById('cs_cust').value.trim(),due:document.getElementById('cs_due').value,memo:document.getElementById('cs_memo').value.trim(),st:curSt,done:false,created:Date.now(),subs:[...formSubs]});
+  const custEl=document.getElementById('cs_cust');
+  const dueEl=document.getElementById('cs_due');
+  const memoEl=document.getElementById('cs_memo');
+  tasks.unshift({
+    id:uid(),src:curSrc,title,
+    cust:custEl?custEl.value.trim():'',
+    due:dueEl?dueEl.value:'',
+    memo:memoEl?memoEl.value.trim():'',
+    st:curSt,done:false,created:Date.now(),subs:[...formSubs]
+  });
   save();renderTasks();closeOv('captureOv');
+  showToast('タスクを追加しました');
 }
 
 function openTaskDet(id){selTaskId=id;renderTaskDet();openOv('taskDetOv');}
@@ -1069,7 +1235,66 @@ document.addEventListener('keydown',e=>{
 
 function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1c1a16;color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';setTimeout(()=>t.style.opacity='0',2000);}
 
-load();loadMailsFromStorage();loadApiKey();renderTasks();renderSched();showTab('task');
+/* ════ GITHUB AUTO PUSH ════ */
+let ghToken='',ghUser='',ghRepo='',ghFile='';
+function loadGhSettings(){
+  ghToken=localStorage.getItem('enkou_gh_token')||'';
+  ghUser=localStorage.getItem('enkou_gh_user')||'';
+  ghRepo=localStorage.getItem('enkou_gh_repo')||'';
+  ghFile=localStorage.getItem('enkou_gh_file')||'';
+  const inp=document.getElementById('ghTokenInput');
+  if(!inp)return;
+  if(ghToken){
+    inp.value=ghToken;
+    document.getElementById('ghUserInput').value=ghUser;
+    document.getElementById('ghRepoInput').value=ghRepo;
+    document.getElementById('ghFileInput').value=ghFile;
+    document.getElementById('ghStatus').textContent='設定済み ✓';
+    document.getElementById('ghStatus').className='status-ok';
+    document.getElementById('ghPushBtn').disabled=false;
+  }
+}
+function saveGhSettings(){
+  const t=document.getElementById('ghTokenInput').value.trim();
+  const u=document.getElementById('ghUserInput').value.trim();
+  const r=document.getElementById('ghRepoInput').value.trim();
+  const f=document.getElementById('ghFileInput').value.trim();
+  if(!t||!u||!r||!f){showToast('すべての項目を入力してください');return;}
+  ghToken=t;ghUser=u;ghRepo=r;ghFile=f;
+  localStorage.setItem('enkou_gh_token',t);
+  localStorage.setItem('enkou_gh_user',u);
+  localStorage.setItem('enkou_gh_repo',r);
+  localStorage.setItem('enkou_gh_file',f);
+  document.getElementById('ghStatus').textContent='設定済み ✓';
+  document.getElementById('ghStatus').className='status-ok';
+  document.getElementById('ghPushBtn').disabled=false;
+  showToast('GitHub設定を保存しました');
+}
+async function pushToGithub(){
+  if(!ghToken||!ghUser||!ghRepo||!ghFile){showToast('⚙ GitHub設定が未完了です');showTab('settings');return;}
+  const btn=document.getElementById('ghPushBtn');
+  if(btn){btn.disabled=true;btn.textContent='送信中...';}
+  try{
+    const getRes=await fetch(`https://api.github.com/repos/${ghUser}/${ghRepo}/contents/${ghFile}`,{
+      headers:{'Authorization':`token ${ghToken}`,'Accept':'application/vnd.github.v3+json'}
+    });
+    let sha='';
+    if(getRes.ok){const d=await getRes.json();sha=d.sha;}
+    const htmlRes=await fetch(location.href);
+    const htmlText=await htmlRes.text();
+    const encoded=btoa(unescape(encodeURIComponent(htmlText)));
+    const pushRes=await fetch(`https://api.github.com/repos/${ghUser}/${ghRepo}/contents/${ghFile}`,{
+      method:'PUT',
+      headers:{'Authorization':`token ${ghToken}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+      body:JSON.stringify({message:`Update ${ghFile} ${new Date().toLocaleString('ja-JP')}`,content:encoded,...(sha?{sha}:{})})
+    });
+    if(pushRes.ok){showToast('✓ GitHubに反映しました');}
+    else{const e=await pushRes.json();showToast('エラー：'+(e.message||'送信失敗'));}
+  }catch(e){showToast('エラー：'+e.message);}
+  if(btn){btn.disabled=false;btn.textContent='⬆ 今すぐGitHubに反映';}
+}
+
+load();loadMailsFromStorage();loadApiKey();loadGhSettings();renderTasks();renderSched();showTab('task');
 </script>
 
 
