@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)file:///C:/Users/nk0712/Downloads/enkou_app_7.html -->
+<!-- saved from url=(0050)file:///C:/Users/nk0712/Downloads/enkou_app_8.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -248,7 +248,8 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 /* OVERLAYS */
 .overlay{display:none;position:fixed;inset:0;background:rgba(20,18,14,.55);backdrop-filter:blur(3px);z-index:300;align-items:flex-end;justify-content:center;}
 .overlay.open{display:flex;}
-.sheet{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:520px;padding:18px 18px 44px;animation:up .2s ease;max-height:92vh;overflow-y:auto;}
+.sheet{background:var(--surface);border-radius:18px 18px 0 0;width:100%;max-width:520px;padding:18px 18px 44px;animation:up .2s ease;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+@media(max-width:768px){.sheet{max-height:80vh;}}
 @keyframes up{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
 .handle{width:30px;height:3px;background:var(--border2);border-radius:2px;margin:0 auto 14px;}
 .stitle{font-size:15px;font-weight:700;margin-bottom:14px;}
@@ -473,32 +474,38 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 
 <!-- CAPTURE OVERLAY -->
 <div class="overlay" id="captureOv">
-  <div class="sheet">
+  <div class="sheet" style="padding-bottom:max(44px,env(safe-area-inset-bottom));">
     <div class="handle"></div>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-      <span style="font-size:24px;" id="cs_icon"></span>
-      <div><div style="font-size:13px;font-weight:700;" id="cs_label"></div><div style="font-size:11px;color:var(--text2);">からのタスク</div></div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span style="font-size:22px;" id="cs_icon"></span>
+      <div><div style="font-size:13px;font-weight:700;" id="cs_label"></div><div style="font-size:11px;color:var(--text2);">のタスクを登録</div></div>
     </div>
-    <label class="flbl">① やること</label>
-    <input class="finp" id="cs_title" type="text" placeholder="一言でOK">
-    <label class="flbl">② ステータス</label>
-    <div class="st-grid">
+    <label class="flbl">やること</label>
+    <input class="finp" id="cs_title" type="text" placeholder="一言でOK" autocomplete="off">
+    <label class="flbl">顧客名</label>
+    <input class="finp" id="cs_cust" type="text" placeholder="施設名など" autocomplete="off">
+    <label class="flbl">ステータス</label>
+    <div class="st-grid" style="margin-bottom:12px;">
       <button class="stsel on" data-st="todo" onclick="pickSt(&#39;todo&#39;,this)">    <span class="stn" style="color:#c0392b;">🔴 未対応</span></button>
       <button class="stsel" data-st="doing" onclick="pickSt(&#39;doing&#39;,this)">   <span class="stn" style="color:#1d5fa8;">🔵 対応中</span></button>
       <button class="stsel" data-st="maker" onclick="pickSt(&#39;maker&#39;,this)">   <span class="stn" style="color:#b07010;">🟡 メーカー確認</span></button>
       <button class="stsel" data-st="customer" onclick="pickSt(&#39;customer&#39;,this)"><span class="stn" style="color:#1a7a4a;">🟢 お客様確認</span></button>
     </div>
-    <label class="flbl">③ サブタスク（任意）</label>
-    <div class="sub-row"><input class="sub-fi" id="sub_inp" type="text" placeholder="例：見積依頼・作成・送信"><button class="sub-ab" onclick="addFormSub()">＋</button></div>
-    <div class="sub-list" id="sub_list"></div>
-    <details><summary style="font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;margin-bottom:8px;">▶ 追加情報（任意）</summary>
+    <details><summary style="font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;margin-bottom:8px;list-style:none;">▶ 追加情報・サブタスク（任意）</summary>
       <div style="margin-top:8px;">
-        <div class="frow2"><div><label class="flbl">顧客名</label><input class="finp" id="cs_cust" type="text" placeholder="施設名" style="margin-bottom:0;"></div><div><label class="flbl">期限</label><input class="finp" id="cs_due" type="date" style="margin-bottom:0;"></div></div>
-        <label class="flbl" style="margin-top:8px;">メモ</label>
-        <input class="finp" id="cs_memo" type="text" placeholder="補足">
+        <div class="frow2" style="margin-bottom:8px;">
+          <div><label class="flbl">期限</label><input class="finp" id="cs_due" type="date" style="margin-bottom:0;"></div>
+          <div><label class="flbl">メモ</label><input class="finp" id="cs_memo" type="text" placeholder="補足" style="margin-bottom:0;" autocomplete="off"></div>
+        </div>
+        <label class="flbl">サブタスク</label>
+        <div class="sub-row"><input class="sub-fi" id="sub_inp" type="text" placeholder="例：見積作成・送信" autocomplete="off"><button class="sub-ab" onclick="addFormSub()">＋</button></div>
+        <div class="sub-list" id="sub_list"></div>
       </div>
     </details>
-    <div class="btn-row"><button class="btn btn-g" onclick="closeOv(&#39;captureOv&#39;)">キャンセル</button><button class="btn btn-p" onclick="saveCapture()">記録 ✓</button></div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn-g" onclick="closeOv(&#39;captureOv&#39;)">キャンセル</button>
+      <button class="btn btn-p" onclick="saveCapture()">記録 ✓</button>
+    </div>
   </div>
 </div>
 
