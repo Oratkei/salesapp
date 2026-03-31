@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)file:///C:/Users/nk0712/Downloads/enkou_app%20(10).html -->
+<!-- saved from url=(0055)file:///C:/Users/nk0712/Downloads/enkou_app%20(11).html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -427,53 +427,65 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
         <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">1</span>
       </button>
       <button class="st-tab t-doing" onclick="switchSpTab(&#39;doing&#39;,this)">
-        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">1</span>
+        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">0</span>
       </button>
       <button class="st-tab t-maker" onclick="switchSpTab(&#39;maker&#39;,this)">
-        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">1</span>
+        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">0</span>
       </button>
       <button class="st-tab t-customer" onclick="switchSpTab(&#39;customer&#39;,this)">
-        <span class="st-dot"></span><span>お客様</span><span class="st-cnt" id="sp-cnt-customer">1</span>
+        <span class="st-dot"></span><span>お客様</span><span class="st-cnt" id="sp-cnt-customer">0</span>
       </button>
     </div>
   </div>
 
   <!-- スマホ用縦ボード -->
-  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi9o8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mneoy7rjnifo" draggable="true" onclick="openTaskDet(&#39;mneoy7rjnifo&#39;)" data-id="mneoy7rjnifo" ondragstart="onDragStart(event,&#39;mneoy7rjnifo&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mneoy7rjnifo&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
-      <div class="tct">さくら苑へ見積書を送付</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
+      <div class="tct">見積</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mneoy7rjnifo&#39;)">
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:2px;">さくら苑</div>
-    <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
-  </div><div style="margin-top:14px;">
-        <button class="done-toggle" onclick="toggleDoneSection(&#39;todo&#39;)">
-          <span>✅ 完了済み 1件</span><span>▼</span>
-        </button>
-        
-      </div></div>
+    <div style="font-size:10px;color:var(--text3);margin-top:2px;">こまきのもり</div>
+    
+  </div></div>
 
   <!-- PC用カンバン -->
   <div class="kanban-wrap">
     <div class="kanban-col kcol-todo" id="col-todo">
       <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">1</span></div>
-      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi9o8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mneoy7rjnifo" draggable="true" onclick="openTaskDet(&#39;mneoy7rjnifo&#39;)" data-id="mneoy7rjnifo" ondragstart="onDragStart(event,&#39;mneoy7rjnifo&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mneoy7rjnifo&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
-      <div class="tct">さくら苑へ見積書を送付</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
+      <div class="tct">見積</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mneoy7rjnifo&#39;)">
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:2px;">さくら苑</div>
-    <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
-  </div><div style="margin-top:8px;">
-          <button class="done-toggle" onclick="toggleDoneSection(&#39;todo&#39;)"><span>✅ 完了済み 1件</span><span>▼</span></button>
-          <div class="done-section" style=""><div class="tcard done" id="tc_mne9qqhixyu1" draggable="false" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhixyu1&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div style="font-size:10px;color:var(--text3);margin-top:2px;">こまきのもり</div>
+    
+  </div></div>
+    </div>
+    <div class="kanban-col kcol-doing" id="col-doing">
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">0</span></div>
+      <div class="kbody" id="body-doing"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);">🎉 お疲れ様です！</div></div>
+    </div>
+    <div class="kanban-col kcol-maker" id="col-maker">
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">0</span></div>
+      <div class="kbody" id="body-maker"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);">🎉 お疲れ様です！</div><div style="margin-top:8px;">
+          <button class="done-toggle" onclick="toggleDoneSection(&#39;maker&#39;)"><span>✅ 完了済み 2件</span><span>▼</span></button>
+          <div class="done-section" style=""><div class="tcard done" id="tc_mneix8qt1c6g" draggable="false" onclick="openTaskDet(&#39;mneix8qt1c6g&#39;)" data-id="mneix8qt1c6g" ondragstart="onDragStart(event,&#39;mneix8qt1c6g&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mneix8qt1c6g&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div class="tr1">
+      <div class="tct">ショーワグローブ　分納連絡</div>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mneix8qt1c6g&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div style="font-size:10px;color:var(--text3);margin-top:2px;">福あられ本舗</div>
+    
+  </div><div class="tcard done" id="tc_mnebd8le5xf0" draggable="false" onclick="openTaskDet(&#39;mnebd8le5xf0&#39;)" data-id="mnebd8le5xf0" ondragstart="onDragStart(event,&#39;mnebd8le5xf0&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mnebd8le5xf0&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">PVCグローブ価格をメーカーに確認</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhixyu1&#39;)">
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mnebd8le5xf0&#39;)">
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
@@ -482,44 +494,21 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   </div></div>
         </div></div>
     </div>
-    <div class="kanban-col kcol-doing" id="col-doing">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">1</span></div>
-      <div class="kbody" id="body-doing"><div class="tcard" id="tc_mne9qqhii2pu" draggable="true" onclick="openTaskDet(&#39;mne9qqhii2pu&#39;)" data-id="mne9qqhii2pu" ondragstart="onDragStart(event,&#39;mne9qqhii2pu&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhii2pu&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
-    <div class="tr1">
-      <div class="tct">〇〇老健への折り返し電話</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhii2pu&#39;)">
-        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-    </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:2px;">〇〇老健</div>
-    
-  </div></div>
-    </div>
-    <div class="kanban-col kcol-maker" id="col-maker">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">1</span></div>
-      <div class="kbody" id="body-maker"><div class="tcard" id="tc_mne9qqhij3bg" draggable="true" onclick="openTaskDet(&#39;mne9qqhij3bg&#39;)" data-id="mne9qqhij3bg" ondragstart="onDragStart(event,&#39;mne9qqhij3bg&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhij3bg&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
-    <div class="tr1">
-      <div class="tct">週報を渡邉さんに提出</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhij3bg&#39;)">
-        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-    </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:2px;">社内</div>
-    
-  </div></div>
-    </div>
     <div class="kanban-col kcol-customer" id="col-customer">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">1</span></div>
-      <div class="kbody" id="body-customer"><div class="tcard" id="tc_mne9qqhi6t8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi6t8o&#39;)" data-id="mne9qqhi6t8o" ondragstart="onDragStart(event,&#39;mne9qqhi6t8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi6t8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">0</span></div>
+      <div class="kbody" id="body-customer"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);">🎉 お疲れ様です！</div><div style="margin-top:8px;">
+          <button class="done-toggle" onclick="toggleDoneSection(&#39;customer&#39;)"><span>✅ 完了済み 1件</span><span>▼</span></button>
+          <div class="done-section" style=""><div class="tcard done" id="tc_mnebd8lemi40" draggable="false" onclick="openTaskDet(&#39;mnebd8lemi40&#39;)" data-id="mnebd8lemi40" ondragstart="onDragStart(event,&#39;mnebd8lemi40&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mnebd8lemi40&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">△△特養 補助金申請書類の確認待ち</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi6t8o&#39;)">
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mnebd8lemi40&#39;)">
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
     <div style="font-size:10px;color:var(--text3);margin-top:2px;">△△特養</div>
     
   </div></div>
+        </div></div>
     </div>
   </div>
 </div>
@@ -642,7 +631,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div><div class="mday" onclick="selectDay(&#39;2026-03-30&#39;)">
       <div class="mday-num">30</div>
       <div class="mday-dots"></div>
-    </div><div class="mday today" onclick="selectDay(&#39;2026-03-31&#39;)">
+    </div><div class="mday today selected" onclick="selectDay(&#39;2026-03-31&#39;)">
       <div class="mday-num">31</div>
       <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
     </div><div class="mday other-month"><div class="mday-num">1</div></div><div class="mday other-month"><div class="mday-num">2</div></div><div class="mday other-month"><div class="mday-num">3</div></div><div class="mday other-month"><div class="mday-num">4</div></div><div class="mday other-month"><div class="mday-num">5</div></div></div>
@@ -651,8 +640,8 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     <div class="apo-list"><div style="font-size:12px;color:var(--text3);margin-bottom:10px;">予定なし</div></div>
     <button class="add-apo-btn" onclick="openApo(&#39;2026-03-31&#39;)">＋ アポ・予定を追加</button>
     <div style="font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.06em;margin-bottom:6px;">本日のタスク</div>
-    <div class="todo-day-list"><div class="todo-item"><span class="todo-txt">さくら苑へ見積書を送付</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div><div class="todo-item"><span class="todo-txt">〇〇老健への折り返し電話</span><span class="todo-st" style="background:#e8f2fb;color:#1d5fa8;">対応中</span></div></div>
-    <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:.06em;margin:12px 0 6px;">✅ 完了済み</div><div class="todo-day-list"><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ PVCグローブ価格をメーカーに確認</span><span style="font-size:10px;color:var(--text3);">信越化学</span></div></div>
+    <div class="todo-day-list"><div class="todo-item"><span class="todo-txt">Anthropic APIキーを取得・設定する</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div><div class="todo-item"><span class="todo-txt">GitHub Pagesのスマホアクセスを確認する</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div></div>
+    <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:.06em;margin:12px 0 6px;">✅ 完了済み</div><div class="todo-day-list"><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ ショーワグローブ　分納連絡</span><span style="font-size:10px;color:var(--text3);">福あられ本舗</span></div><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ PVCグローブ価格をメーカーに確認</span><span style="font-size:10px;color:var(--text3);">信越化学</span></div><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ △△特養 補助金申請書類の確認待ち</span><span style="font-size:10px;color:var(--text3);">△△特養</span></div></div>
   </div>
   </div>
 </div>
@@ -1920,9 +1909,9 @@ async function syncToSupabase(auto=false){
     showToast(auto?'☁ 同期済み':'✓ クラウドに保存しました');
   }catch(e){showToast('エラー：'+e.message);}
 }
-async function syncFromSupabase(){
-  if(!sbUrl||!sbKey){showToast('Supabase設定を完了してください');return;}
-  showToast('クラウドから取得中…');
+async function syncFromSupabase(auto=false){
+  if(!sbUrl||!sbKey){if(!auto)showToast('Supabase設定を完了してください');return;}
+  if(!auto)showToast('クラウドから取得中…');
   try{
     const h={'apikey':sbKey,'Authorization':`Bearer ${sbKey}`};
     const [tRes,aRes,mRes]=await Promise.all([
@@ -1934,7 +1923,7 @@ async function syncFromSupabase(){
     if(Array.isArray(tData)&&tData.length){tasks=tData.map(t=>({id:t.id,src:t.src,title:t.title,cust:t.cust,due:t.due,memo:t.memo,st:t.st,done:t.done,completedAt:t.completed_at,created:t.created,subs:t.subs||[]}));save();renderTasks();}
     if(Array.isArray(aData)&&aData.length){apos=aData.map(a=>({id:a.id,type:a.type,date:a.date,start:a.start_time,end:a.end_time,title:a.title,place:a.place,memo:a.memo,gcalId:a.gcal_id}));save();renderSched();if(document.getElementById('page-apo').classList.contains('active'))renderApoPage();}
     if(Array.isArray(mData)&&mData.length){memos=mData.map(m=>({id:m.id,body:m.body,cat:m.cat,cust:m.cust,created:m.created,updated:m.updated}));saveMemos();renderMemoPage();}
-    showToast(`✓ 取得完了（タスク${tasks.length}・アポ${apos.length}・メモ${memos.length}件）`);
+    if(!auto)showToast(`✓ 取得完了（タスク${tasks.length}・アポ${apos.length}・メモ${memos.length}件）`);
   }catch(e){showToast('エラー：'+e.message);}
 }
 
@@ -2010,7 +1999,12 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
   });
 });
 handleOAuthCallback();
+// 起動時にSupabaseから自動取得
+if(sbUrl&&sbKey){setTimeout(()=>syncFromSupabase(true),800);}
+
+// 定期自動取得（30秒ごと）
+setInterval(()=>{if(sbUrl&&sbKey)syncFromSupabase(true);},30000);
 </script>
 
 
-</body></html>
+<div id="toast" style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgb(28, 26, 22); color: rgb(255, 255, 255); padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none;">☁ 同期済み</div></body></html>
