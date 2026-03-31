@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)file:///C:/Users/nk0712/Downloads/enkou_app_14.html -->
+<!-- saved from url=(0054)file:///C:/Users/nk0712/Downloads/enkou_app%20(5).html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -293,15 +293,64 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 .sub-add-row input{flex:1;background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:7px 10px;font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text);outline:none;}
 .sub-add-row button{background:var(--text);color:#fff;border:none;border-radius:7px;padding:0 13px;font-size:14px;cursor:pointer;}
 .move-st-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:8px 0;}
-.mv-btn{padding:8px;border-radius:7px;border:1px solid var(--border);background:var(--s2);font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;color:var(--text2);}
-.mv-btn.cur{opacity:.4;cursor:default;}
+.mv-btn{padding:8px;border-radius:7px;border:1.5px solid var(--border);background:var(--s3);font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;color:var(--text3);}
+.mv-btn.cur{cursor:default;}
+.mv-btn.cur-todo    {background:var(--reds)  ;color:var(--red)  ;border-color:var(--red)  ;border-width:2px;}
+.mv-btn.cur-doing   {background:var(--bluebg);color:var(--blue) ;border-color:var(--blue) ;border-width:2px;}
+.mv-btn.cur-maker   {background:var(--amberbg);color:var(--amber);border-color:var(--amber);border-width:2px;}
+.mv-btn.cur-customer{background:var(--greenbg);color:var(--green);border-color:var(--green);border-width:2px;}
 .mail-det-subj{font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.4;}
 .mail-det-meta{font-size:11px;color:var(--text2);margin-bottom:10px;line-height:1.6;}
 .mail-det-body{font-size:13px;line-height:1.7;color:var(--text);background:var(--s2);border-radius:8px;padding:12px;margin-bottom:12px;white-space:pre-wrap;max-height:260px;overflow-y:auto;}
 .mail-ai-tag{display:flex;align-items:center;gap:6px;background:var(--purplebg);border-radius:8px;padding:8px 10px;margin-bottom:10px;}
 .mail-ai-tag span{font-size:12px;color:var(--purple);}
 
-/* ── スマホ用ステータスタブ ── */
+/* FABダイヤル */
+.fab-wrap{position:fixed;bottom:24px;right:20px;z-index:250;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.fab-main{width:56px;height:56px;border-radius:50%;background:var(--text);color:#fff;border:none;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:transform .25s;font-family:'Noto Sans JP',sans-serif;}
+.fab-main.open{transform:rotate(45deg);}
+.fab-items{display:flex;flex-direction:column;align-items:center;gap:10px;overflow:hidden;max-height:0;opacity:0;transition:max-height .3s ease,opacity .25s ease;pointer-events:none;}
+.fab-items.open{max-height:300px;opacity:1;pointer-events:auto;}
+.fab-item{display:flex;align-items:center;gap:8px;flex-direction:row-reverse;}
+.fab-item-btn{width:46px;height:46px;border-radius:50%;border:none;font-size:20px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;transition:transform .15s;}
+.fab-item-btn:active{transform:scale(.9);}
+.fab-item-btn.fmic {background:#1c1a16;color:#fff;}
+.fab-item-btn.festimate{background:var(--amberbg);color:var(--amber);border:1.5px solid var(--amber);}
+.fab-item-btn.fmemo{background:var(--bluebg);color:var(--blue);border:1.5px solid var(--blue);}
+.fab-label{font-size:11px;font-weight:700;background:rgba(28,26,22,.75);color:#fff;padding:3px 9px;border-radius:10px;white-space:nowrap;}
+/* プリセットボタン */
+.task-preset{padding:10px 4px;border-radius:8px;border:1.5px solid var(--border);background:var(--s2);font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;color:var(--text2);transition:all .15s;text-align:center;}
+.task-preset.selected{background:var(--text);color:#fff;border-color:var(--text);}
+
+/* 月カレンダー */
+.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);flex-shrink:0;}
+.month-day-name{background:var(--s2);padding:5px 2px;font-size:9px;font-weight:700;text-align:center;color:var(--text3);}
+.mday{background:var(--surface);min-height:52px;padding:4px;cursor:pointer;position:relative;transition:background .1s;}
+.mday:hover{background:var(--s2);}
+.mday.other-month{background:var(--s3);opacity:.5;}
+.mday.today .mday-num{background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 2px;}
+.mday.selected{outline:2px solid var(--blue);}
+.mday-num{font-size:11px;font-weight:700;text-align:center;margin-bottom:2px;line-height:20px;}
+.mday-dots{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;}
+.mday-dot{width:5px;height:5px;border-radius:50%;}
+.mday-dot.apo{background:var(--green);}
+.mday-dot.task{background:var(--red);}
+.mday-dot.done{background:#2ecc71;}
+
+/* メモページ */
+.memo-page{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.memo-toolbar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.memo-list{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;}
+.memo-card{background:var(--surface);border-radius:10px;padding:12px 14px;box-shadow:var(--sh);cursor:pointer;border-left:3px solid var(--gold);}
+.memo-card:hover{box-shadow:var(--sh2);}
+.memo-card-body{font-size:13px;line-height:1.6;color:var(--text);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.memo-card-date{font-size:10px;color:var(--text3);margin-top:6px;}
+.memo-empty{text-align:center;padding:48px 20px;color:var(--text3);font-size:13px;}
+.memo-cat-btn{padding:9px 8px;border-radius:8px;border:1.5px solid var(--border);background:var(--s2);font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;color:var(--text2);transition:all .15s;text-align:center;}
+.memo-cat-btn.on{border-color:var(--text);background:var(--text);color:#fff;}
+.memo-card-cat{font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:4px;}
+.cat-think{background:var(--purplebg);color:var(--purple);}
+.cat-tel{background:var(--bluebg);color:var(--blue);}
 .st-tabs{display:none;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;}
 .st-tab-list{display:flex;}
 .st-tab{flex:1;padding:10px 4px 9px;font-size:10px;font-weight:700;border:none;background:none;cursor:pointer;color:var(--text2);border-bottom:3px solid transparent;font-family:'Noto Sans JP',sans-serif;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .15s;}
@@ -333,10 +382,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab(&#39;task&#39;)" id="tab-task">
-    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="">2</span>
-  </button>
-  <button class="tab-btn" onclick="showTab(&#39;dev&#39;)" id="tab-dev">
-    <span class="ti">🛠</span><span>開発</span><span class="badge" id="dev-badge" style="display:none">0</span>
+    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="">1</span>
   </button>
   <button class="tab-btn" onclick="showTab(&#39;sched&#39;)" id="tab-sched">
     <span class="ti">📅</span><span>予定</span>
@@ -344,23 +390,22 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   <button class="tab-btn" onclick="showTab(&#39;mail&#39;)" id="tab-mail">
     <span class="ti">✉️</span><span>メール</span><span class="badge" id="mail-badge" style="display:none">0</span>
   </button>
+  <button class="tab-btn" onclick="showTab(&#39;memo&#39;)" id="tab-memo">
+    <span class="ti">📝</span><span>メモ</span>
+  </button>
+  <button class="tab-btn" onclick="showTab(&#39;dev&#39;)" id="tab-dev">
+    <span class="ti">🛠</span><span>開発</span><span class="badge" id="dev-badge" style="display:none">0</span>
+  </button>
 </div>
 
 <!-- TASK PAGE -->
 <div class="page active" id="page-task">
-  <div class="capture-bar">
-    <div class="capture-label">タスクを即記録</div>
-    <div class="src-buttons" style="grid-template-columns:1fr 1fr;">
-      <button class="sb ins" onclick="openCaptureType(&#39;見積&#39;)">  <span class="si">📋</span><span class="sn">見積</span></button>
-      <button class="sb tel" onclick="openCaptureType(&#39;問い合わせ&#39;)"><span class="si">📞</span><span class="sn">問い合わせ</span></button>
-    </div>
-  </div>
 
   <!-- スマホ用ステータスタブ -->
   <div class="st-tabs">
     <div class="st-tab-list">
       <button class="st-tab t-todo active" onclick="switchSpTab(&#39;todo&#39;,this)">
-        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">2</span>
+        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">1</span>
       </button>
       <button class="st-tab t-doing" onclick="switchSpTab(&#39;doing&#39;,this)">
         <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">1</span>
@@ -375,7 +420,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   </div>
 
   <!-- スマホ用縦ボード -->
-  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)">
+  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi9o8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">さくら苑へ見積書を送付</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
@@ -384,22 +429,18 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <div style="font-size:10px;color:var(--text3);margin-top:2px;">さくら苑</div>
     <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
-  </div><div class="tcard" id="tc_mne9qqhixyu1" draggable="true" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)">
-    <div class="tr1">
-      <div class="tct">PVCグローブ価格をメーカーに確認</div>
-      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhixyu1&#39;)">
-        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-    </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:2px;">信越化学</div>
-    
-  </div></div>
+  </div><div style="margin-top:14px;">
+        <button class="done-toggle" onclick="toggleDoneSection(&#39;todo&#39;)">
+          <span>✅ 完了済み 1件</span><span>▼</span>
+        </button>
+        
+      </div></div>
 
   <!-- PC用カンバン -->
   <div class="kanban-wrap">
     <div class="kanban-col kcol-todo" id="col-todo">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">2</span></div>
-      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)">
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">1</span></div>
+      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mne9qqhi9o8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi9o8o&#39;)" data-id="mne9qqhi9o8o" ondragstart="onDragStart(event,&#39;mne9qqhi9o8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi9o8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">さくら苑へ見積書を送付</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi9o8o&#39;)">
@@ -408,7 +449,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <div style="font-size:10px;color:var(--text3);margin-top:2px;">さくら苑</div>
     <div class="spb"><div class="spbw"><div class="spbf pt" style="width:67%"></div></div><span class="spbc">2/3</span></div>
-  </div><div class="tcard" id="tc_mne9qqhixyu1" draggable="true" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)">
+  </div><div style="margin-top:8px;">
+          <button class="done-toggle" onclick="toggleDoneSection(&#39;todo&#39;)"><span>✅ 完了済み 1件</span><span>▼</span></button>
+          <div class="done-section" style=""><div class="tcard done" id="tc_mne9qqhixyu1" draggable="false" onclick="openTaskDet(&#39;mne9qqhixyu1&#39;)" data-id="mne9qqhixyu1" ondragstart="onDragStart(event,&#39;mne9qqhixyu1&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhixyu1&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">PVCグローブ価格をメーカーに確認</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhixyu1&#39;)">
@@ -418,10 +461,11 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     <div style="font-size:10px;color:var(--text3);margin-top:2px;">信越化学</div>
     
   </div></div>
+        </div></div>
     </div>
     <div class="kanban-col kcol-doing" id="col-doing">
       <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">1</span></div>
-      <div class="kbody" id="body-doing"><div class="tcard" id="tc_mne9qqhii2pu" draggable="true" onclick="openTaskDet(&#39;mne9qqhii2pu&#39;)" data-id="mne9qqhii2pu" ondragstart="onDragStart(event,&#39;mne9qqhii2pu&#39;)" ondragend="onDragEnd(event)">
+      <div class="kbody" id="body-doing"><div class="tcard" id="tc_mne9qqhii2pu" draggable="true" onclick="openTaskDet(&#39;mne9qqhii2pu&#39;)" data-id="mne9qqhii2pu" ondragstart="onDragStart(event,&#39;mne9qqhii2pu&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhii2pu&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">〇〇老健への折り返し電話</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhii2pu&#39;)">
@@ -434,7 +478,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <div class="kanban-col kcol-maker" id="col-maker">
       <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">1</span></div>
-      <div class="kbody" id="body-maker"><div class="tcard" id="tc_mne9qqhij3bg" draggable="true" onclick="openTaskDet(&#39;mne9qqhij3bg&#39;)" data-id="mne9qqhij3bg" ondragstart="onDragStart(event,&#39;mne9qqhij3bg&#39;)" ondragend="onDragEnd(event)">
+      <div class="kbody" id="body-maker"><div class="tcard" id="tc_mne9qqhij3bg" draggable="true" onclick="openTaskDet(&#39;mne9qqhij3bg&#39;)" data-id="mne9qqhij3bg" ondragstart="onDragStart(event,&#39;mne9qqhij3bg&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhij3bg&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">週報を渡邉さんに提出</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhij3bg&#39;)">
@@ -447,7 +491,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <div class="kanban-col kcol-customer" id="col-customer">
       <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">1</span></div>
-      <div class="kbody" id="body-customer"><div class="tcard" id="tc_mne9qqhi6t8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi6t8o&#39;)" data-id="mne9qqhi6t8o" ondragstart="onDragStart(event,&#39;mne9qqhi6t8o&#39;)" ondragend="onDragEnd(event)">
+      <div class="kbody" id="body-customer"><div class="tcard" id="tc_mne9qqhi6t8o" draggable="true" onclick="openTaskDet(&#39;mne9qqhi6t8o&#39;)" data-id="mne9qqhi6t8o" ondragstart="onDragStart(event,&#39;mne9qqhi6t8o&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mne9qqhi6t8o&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">△△特養 補助金申請書類の確認待ち</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mne9qqhi6t8o&#39;)">
@@ -468,57 +512,145 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <div><div class="dev-title">🛠 アプリ開発タスク</div><div class="dev-sub">このトーク内の未完了タスク</div></div>
       <button class="dev-add-btn" onclick="openDevCapture()">＋ 追加</button>
     </div>
-    <div class="dev-stats" id="devStats"></div>
+    <div class="dev-stats" id="devStats"><div class="dev-stat"><div class="dev-stat-num">0</div><div class="dev-stat-label">合計</div></div><div class="dev-stat"><div class="dev-stat-num done-c">0</div><div class="dev-stat-label">完了</div></div><div class="dev-stat"><div class="dev-stat-num" style="color:#f87171">0</div><div class="dev-stat-label">未着手</div></div><div class="dev-stat"><div class="dev-stat-num" style="color:#fcd34d">0</div><div class="dev-stat-label">作業中</div></div></div>
   </div>
   <div class="dev-filter-bar">
     <button class="dev-filter on" data-f="all" onclick="setDevFilter(&#39;all&#39;,this)">すべて</button>
     <button class="dev-filter" data-f="todo" onclick="setDevFilter(&#39;todo&#39;,this)">未完了</button>
     <button class="dev-filter" data-f="done" onclick="setDevFilter(&#39;done&#39;,this)">完了済</button>
   </div>
-  <div class="dev-list" id="devList"></div>
+  <div class="dev-list" id="devList"><div class="dev-empty">タスクなし<br><br><button style="background:var(--text);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;" onclick="addDevTasks()">🛠 開発タスクを一括登録</button></div></div>
 </div>
 
-<!-- SCHEDULE PAGE -->
+<!-- SCHEDULE PAGE（月表示） -->
 <div class="page" id="page-sched">
   <div class="sched-page">
     <div class="week-nav">
-      <button class="nav-btn" onclick="moveWeek(-1)">◀</button>
+      <button class="nav-btn" onclick="moveMonth(-1)">◀</button>
       <span class="week-label" id="weekLabel">2026年3月</span>
       <div style="display:flex;gap:6px;">
-        <button class="nav-btn" onclick="moveWeek(0)">今週</button>
-        <button class="nav-btn" onclick="moveWeek(1)">▶</button>
+        <button class="nav-btn" onclick="moveMonth(0)">今月</button>
+        <button class="nav-btn" onclick="moveMonth(1)">▶</button>
       </div>
     </div>
-    <div class="week-grid" id="weekGrid"><div class="wday" onclick="selectDay(&#39;2026-03-30&#39;)" style="">
-      <div class="wday-name">月</div><div class="wday-num">30</div>
-      <div class="wday-events"></div>
-    </div><div class="wday today" onclick="selectDay(&#39;2026-03-31&#39;)" style="">
-      <div class="wday-circle">31</div>
-      <div class="wday-events"><div class="wday-evt" style="background:#fff1f0;color:#c0392b;">🔴 さくら苑へ見積書を送付</div></div>
-    </div><div class="wday" onclick="selectDay(&#39;2026-04-01&#39;)" style="">
-      <div class="wday-name">水</div><div class="wday-num">1</div>
-      <div class="wday-events"></div>
-    </div><div class="wday" onclick="selectDay(&#39;2026-04-02&#39;)" style="">
-      <div class="wday-name">木</div><div class="wday-num">2</div>
-      <div class="wday-events"></div>
-    </div><div class="wday" onclick="selectDay(&#39;2026-04-03&#39;)" style="">
-      <div class="wday-name">金</div><div class="wday-num">3</div>
-      <div class="wday-events"></div>
-    </div><div class="wday" onclick="selectDay(&#39;2026-04-04&#39;)" style="">
-      <div class="wday-name">土</div><div class="wday-num">4</div>
-      <div class="wday-events"></div>
-    </div><div class="wday" onclick="selectDay(&#39;2026-04-05&#39;)" style="">
-      <div class="wday-name">日</div><div class="wday-num">5</div>
-      <div class="wday-events"></div>
-    </div></div>
+    <div class="month-grid" id="monthGrid"><div class="month-day-name">月</div><div class="month-day-name">火</div><div class="month-day-name">水</div><div class="month-day-name">木</div><div class="month-day-name">金</div><div class="month-day-name">土</div><div class="month-day-name">日</div><div class="mday other-month"><div class="mday-num">23</div></div><div class="mday other-month"><div class="mday-num">24</div></div><div class="mday other-month"><div class="mday-num">25</div></div><div class="mday other-month"><div class="mday-num">26</div></div><div class="mday other-month"><div class="mday-num">27</div></div><div class="mday other-month"><div class="mday-num">28</div></div><div class="mday" onclick="selectDay(&#39;2026-03-01&#39;)">
+      <div class="mday-num">1</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-02&#39;)">
+      <div class="mday-num">2</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-03&#39;)">
+      <div class="mday-num">3</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-04&#39;)">
+      <div class="mday-num">4</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-05&#39;)">
+      <div class="mday-num">5</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-06&#39;)">
+      <div class="mday-num">6</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-07&#39;)">
+      <div class="mday-num">7</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-08&#39;)">
+      <div class="mday-num">8</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-09&#39;)">
+      <div class="mday-num">9</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-10&#39;)">
+      <div class="mday-num">10</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-11&#39;)">
+      <div class="mday-num">11</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-12&#39;)">
+      <div class="mday-num">12</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-13&#39;)">
+      <div class="mday-num">13</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-14&#39;)">
+      <div class="mday-num">14</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-15&#39;)">
+      <div class="mday-num">15</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-16&#39;)">
+      <div class="mday-num">16</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-17&#39;)">
+      <div class="mday-num">17</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-18&#39;)">
+      <div class="mday-num">18</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-19&#39;)">
+      <div class="mday-num">19</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-20&#39;)">
+      <div class="mday-num">20</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-21&#39;)">
+      <div class="mday-num">21</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-22&#39;)">
+      <div class="mday-num">22</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-23&#39;)">
+      <div class="mday-num">23</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-24&#39;)">
+      <div class="mday-num">24</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-25&#39;)">
+      <div class="mday-num">25</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-26&#39;)">
+      <div class="mday-num">26</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-27&#39;)">
+      <div class="mday-num">27</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-28&#39;)">
+      <div class="mday-num">28</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-29&#39;)">
+      <div class="mday-num">29</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday" onclick="selectDay(&#39;2026-03-30&#39;)">
+      <div class="mday-num">30</div>
+      <div class="mday-dots"></div>
+    </div><div class="mday today selected" onclick="selectDay(&#39;2026-03-31&#39;)">
+      <div class="mday-num">31</div>
+      <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
+    </div><div class="mday other-month"><div class="mday-num">1</div></div><div class="mday other-month"><div class="mday-num">2</div></div><div class="mday other-month"><div class="mday-num">3</div></div><div class="mday other-month"><div class="mday-num">4</div></div><div class="mday other-month"><div class="mday-num">5</div></div></div>
     <div class="day-detail" id="dayDetail">
     <div class="day-detail-title">2026年3月31日（火）</div>
     <div class="apo-list"><div style="font-size:12px;color:var(--text3);margin-bottom:10px;">予定なし</div></div>
     <button class="add-apo-btn" onclick="openApo(&#39;2026-03-31&#39;)">＋ アポ・予定を追加</button>
     <div style="font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.06em;margin-bottom:6px;">本日のタスク</div>
     <div class="todo-day-list"><div class="todo-item"><span class="todo-txt">さくら苑へ見積書を送付</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div><div class="todo-item"><span class="todo-txt">〇〇老健への折り返し電話</span><span class="todo-st" style="background:#e8f2fb;color:#1d5fa8;">対応中</span></div></div>
-    
+    <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:.06em;margin:12px 0 6px;">✅ 完了済み</div><div class="todo-day-list"><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ PVCグローブ価格をメーカーに確認</span><span style="font-size:10px;color:var(--text3);">信越化学</span></div></div>
   </div>
+  </div>
+</div>
+
+<!-- MEMO PAGE -->
+<div class="page" id="page-memo">
+  <div class="memo-page">
+    <div class="memo-toolbar">
+      <div style="font-size:13px;font-weight:700;">📝 メモ一覧</div>
+      <button class="dev-add-btn" onclick="openNewMemo()">＋ 新規</button>
+    </div>
+    <div style="background:var(--surface);border-bottom:1px solid var(--border);padding:7px 12px;display:flex;gap:6px;flex-shrink:0;">
+      <button class="mf-btn on" onclick="setMemoFilter(&#39;all&#39;,this)">すべて</button>
+      <button class="mf-btn" onclick="setMemoFilter(&#39;think&#39;,this)">💭 考え事</button>
+      <button class="mf-btn" onclick="setMemoFilter(&#39;tel&#39;,this)">📞 電話メモ</button>
+    </div>
+    <div class="memo-list" id="memoPageList"><div class="memo-empty">📝 メモがありません<br><br><button class="btn btn-p" style="width:160px;margin-top:8px;" onclick="openNewMemo()">＋ 新規メモ</button></div></div>
   </div>
 </div>
 
@@ -534,7 +666,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <button class="mf-btn" onclick="openAddMail()" style="background:var(--text);color:#fff;border-color:var(--text);flex-shrink:0;">＋</button>
   </div>
-  <div class="mail-list" id="mailList"></div>
+  <div class="mail-list" id="mailList"><div class="mail-empty"><p>メールがありません。<br>Gmailで受け取ったメールの要点を<br>手入力で管理できます。</p><button onclick="openAddMail()">＋ メールを追加</button></div></div>
 </div>
 
 <!-- SETTINGS PAGE -->
@@ -589,30 +721,29 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 <div class="overlay" id="captureOv">
   <div class="sheet" style="padding-bottom:max(44px,env(safe-area-inset-bottom));">
     <div class="handle"></div>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-      <span style="font-size:22px;" id="cs_icon"></span>
-      <div><div style="font-size:13px;font-weight:700;" id="cs_label"></div><div style="font-size:11px;color:var(--text2);">のタスクを登録</div></div>
-    </div>
-    <label class="flbl">やること</label>
-    <div style="display:flex;gap:6px;margin-bottom:10px;">
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px;">📋 タスクを追加</div>
+
+    <label class="flbl">やること（入力 または ボタン選択）</label>
+    <div style="display:flex;gap:6px;margin-bottom:8px;">
       <input class="finp" id="cs_title" type="text" placeholder="一言でOK" autocomplete="off" style="margin-bottom:0;flex:1;">
       <button onclick="startVoiceInput(&#39;cs_title&#39;)" style="background:var(--text);color:#fff;border:none;border-radius:8px;padding:0 14px;font-size:18px;cursor:pointer;flex-shrink:0;" id="mic_btn">🎤</button>
     </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px;">
+      <button class="task-preset" onclick="setPreset(&#39;見積&#39;)">📋 見積</button>
+      <button class="task-preset" onclick="setPreset(&#39;問い合わせ回答&#39;)">📞 問い合わせ回答</button>
+      <button class="task-preset" onclick="setPreset(&#39;その他&#39;)">💡 その他</button>
+    </div>
+
     <label class="flbl">顧客名</label>
     <input class="finp" id="cs_cust" type="text" placeholder="施設名など" autocomplete="off">
-    <label class="flbl">ステータス</label>
-    <div class="st-grid" style="margin-bottom:12px;">
-      <button class="stsel on" data-st="todo" onclick="pickSt(&#39;todo&#39;,this)">    <span class="stn" style="color:#c0392b;">🔴 未対応</span></button>
-      <button class="stsel" data-st="doing" onclick="pickSt(&#39;doing&#39;,this)">   <span class="stn" style="color:#1d5fa8;">🔵 対応中</span></button>
-      <button class="stsel" data-st="maker" onclick="pickSt(&#39;maker&#39;,this)">   <span class="stn" style="color:#b07010;">🟡 メーカー確認</span></button>
-      <button class="stsel" data-st="customer" onclick="pickSt(&#39;customer&#39;,this)"><span class="stn" style="color:#1a7a4a;">🟢 お客様確認</span></button>
-    </div>
-    <details><summary style="font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;margin-bottom:8px;list-style:none;">▶ 追加情報・サブタスク（任意）</summary>
+
+    <label class="flbl">期限</label>
+    <input class="finp" id="cs_due" type="date" style="margin-bottom:12px;">
+
+    <details><summary style="font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;margin-bottom:8px;list-style:none;">▶ メモ・サブタスク（任意）</summary>
       <div style="margin-top:8px;">
-        <div class="frow2" style="margin-bottom:8px;">
-          <div><label class="flbl">期限</label><input class="finp" id="cs_due" type="date" style="margin-bottom:0;"></div>
-          <div><label class="flbl">メモ</label><input class="finp" id="cs_memo" type="text" placeholder="補足" style="margin-bottom:0;" autocomplete="off"></div>
-        </div>
+        <label class="flbl">メモ</label>
+        <input class="finp" id="cs_memo" type="text" placeholder="補足" autocomplete="off">
         <label class="flbl">サブタスク</label>
         <div class="sub-row"><input class="sub-fi" id="sub_inp" type="text" placeholder="例：見積作成・送信" autocomplete="off"><button class="sub-ab" onclick="addFormSub()">＋</button></div>
         <div class="sub-list" id="sub_list"></div>
@@ -680,17 +811,60 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 <!-- MAIL DETAIL OVERLAY -->
 <div class="overlay" id="mailDetOv"><div class="sheet" id="mailDetSheet"></div></div>
 
+<!-- MEMO OVERLAY -->
+<div class="overlay" id="memoOv">
+  <div class="sheet" style="padding-bottom:max(44px,env(safe-area-inset-bottom));">
+    <div class="handle"></div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:12px;">📝 メモ</div>
+    <label class="flbl">カテゴリー</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;">
+      <button class="memo-cat-btn" data-cat="think" onclick="pickMemoCat(&#39;think&#39;,this)">💭 考え事</button>
+      <button class="memo-cat-btn on" data-cat="tel" onclick="pickMemoCat(&#39;tel&#39;,this)">📞 電話メモ</button>
+    </div>
+    <textarea class="finp" id="memo_body" rows="5" placeholder="メモを入力…" style="resize:none;line-height:1.7;font-size:14px;" data-edit-id=""></textarea>
+    <div id="memo_tel_extra" style="display: block; margin-bottom: 10px;">
+      <label class="flbl">相手の名前・施設名</label>
+      <input class="finp" id="memo_tel_cust" type="text" placeholder="例：さくら苑 田中様" autocomplete="off" style="margin-bottom:0;">
+    </div>
+    <div class="btn-row" style="margin-top:10px;">
+      <button class="btn btn-g" onclick="closeOv(&#39;memoOv&#39;)">キャンセル</button>
+      <button class="btn" id="memo_task_btn" style="background: var(--amberbg); color: var(--amber); border: 1px solid var(--amber); flex: 1 1 0%;" onclick="memoToTask()">📋 タスク化</button>
+      <button class="btn btn-p" onclick="saveMemoNote()">保存 ✓</button>
+    </div>
+    <div id="memoList" style="margin-top:14px;display:flex;flex-direction:column;gap:8px;"></div>
+  </div>
+</div>
+
+<!-- FABダイヤル -->
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-items" id="fabItems">
+    <div class="fab-item">
+      <button class="fab-item-btn fmic" onclick="fabVoiceInput();toggleFab()">🎤</button>
+      <span class="fab-label">音声入力</span>
+    </div>
+    <div class="fab-item">
+      <button class="fab-item-btn festimate" onclick="openCaptureType(&#39;見積&#39;);toggleFab()">📋</button>
+      <span class="fab-label">見積タスク</span>
+    </div>
+    <div class="fab-item">
+      <button class="fab-item-btn fmemo" onclick="openMemo();toggleFab()">📝</button>
+      <span class="fab-label">メモ</span>
+    </div>
+  </div>
+  <button class="fab-main" id="fabMain" onclick="toggleFab()">＋</button>
+</div>
+
 <script>
 const SK='enkou_v4';
 const SRC={tel:{icon:'📞',label:'電話',tc:'ctag-tel'},mail:{icon:'✉️',label:'メール',tc:'ctag-mail'},visit:{icon:'🚗',label:'商談/訪問',tc:'ctag-visit'},ins:{icon:'📋',label:'社内指示',tc:'ctag-ins'},self:{icon:'💡',label:'自分発',tc:'ctag-self'}};
 const STATUSES={todo:{label:'未対応',color:'#c0392b',bg:'#fff1f0'},doing:{label:'対応中',color:'#1d5fa8',bg:'#e8f2fb'},maker:{label:'メーカー確認中',color:'#b07010',bg:'#fdf4e0'},customer:{label:'お客様確認中',color:'#1a7a4a',bg:'#e4f5ed'}};
 const DEV_KW=['開発','アプリ','API','Flask','SQLite','Gmail','GitHub','Supabase','Claude','Anthropic'];
 
-let tasks=[],apos=[],mails=[],formSubs=[];
+let tasks=[],apos=[],mails=[],formSubs=[],memos=[];
 let curSrc='tel',curSt='todo',selTaskId=null,selMailId=null;
-let mailFilter='all',weekOffset=0,selDay_=null;
+let mailFilter='all',monthOffset=0,selDay_=null;
 let devFilter='all',expandedDevIds=new Set();
-let anthropicApiKey='',curMailCat='task';
+let anthropicApiKey='',curMailCat='task',curMemoCat='think',memoFilter='all';
 
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function todayStr(){return new Date().toISOString().slice(0,10);}
@@ -698,6 +872,139 @@ function offsetDate(n){const d=new Date();d.setDate(d.getDate()+n);return d.toIS
 function fmtDate(s){if(!s)return'—';const[,m,d]=s.split('-');return`${+m}/${+d}`;}
 function fmtTime(s){if(!s)return'';return s.slice(0,5);}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ════ メモ ════ */
+function loadMemos(){try{memos=JSON.parse(localStorage.getItem('enkou_memos')||'[]');}catch{memos=[];}}
+function saveMemos(){localStorage.setItem('enkou_memos',JSON.stringify(memos));}
+
+function pickMemoCat(cat,btn){
+  curMemoCat=cat;
+  document.querySelectorAll('.memo-cat-btn').forEach(b=>b.classList.toggle('on',b===btn));
+  const extra=document.getElementById('memo_tel_extra');
+  const taskBtn=document.getElementById('memo_task_btn');
+  if(extra)extra.style.display=cat==='tel'?'block':'none';
+  if(taskBtn)taskBtn.style.display=cat==='tel'?'':'none';
+}
+
+function setMemoFilter(f,btn){
+  memoFilter=f;
+  document.querySelectorAll('.memo-page .mf-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderMemoPage();
+}
+
+function openNewMemo(){
+  loadMemos();
+  curMemoCat='think';
+  document.getElementById('memo_body').value='';
+  document.getElementById('memo_body').dataset.editId='';
+  const custEl=document.getElementById('memo_tel_cust');
+  if(custEl)custEl.value='';
+  // カテゴリーボタンリセット
+  document.querySelectorAll('.memo-cat-btn').forEach(b=>b.classList.toggle('on',b.dataset.cat==='think'));
+  const extra=document.getElementById('memo_tel_extra');
+  const taskBtn=document.getElementById('memo_task_btn');
+  if(extra)extra.style.display='none';
+  if(taskBtn)taskBtn.style.display='none';
+  renderMemoList();
+  openOv('memoOv');
+}
+
+function openEditMemo(id){
+  loadMemos();
+  const m=memos.find(m=>m.id===id);if(!m)return;
+  curMemoCat=m.cat||'think';
+  document.getElementById('memo_body').value=m.body;
+  document.getElementById('memo_body').dataset.editId=id;
+  const custEl=document.getElementById('memo_tel_cust');
+  if(custEl)custEl.value=m.cust||'';
+  document.querySelectorAll('.memo-cat-btn').forEach(b=>b.classList.toggle('on',b.dataset.cat===curMemoCat));
+  const extra=document.getElementById('memo_tel_extra');
+  const taskBtn=document.getElementById('memo_task_btn');
+  if(extra)extra.style.display=curMemoCat==='tel'?'block':'none';
+  if(taskBtn)taskBtn.style.display=curMemoCat==='tel'?'':'none';
+  renderMemoList();
+  openOv('memoOv');
+}
+
+function saveMemoNote(){
+  const body=document.getElementById('memo_body').value.trim();
+  if(!body){showToast('メモを入力してください');return;}
+  const custEl=document.getElementById('memo_tel_cust');
+  const cust=custEl?custEl.value.trim():'';
+  const editId=document.getElementById('memo_body').dataset.editId;
+  if(editId){
+    const m=memos.find(m=>m.id===editId);
+    if(m){m.body=body;m.cat=curMemoCat;m.cust=cust;m.updated=new Date().toISOString();}
+    document.getElementById('memo_body').dataset.editId='';
+  } else {
+    memos.unshift({id:uid(),body,cat:curMemoCat,cust,created:new Date().toISOString()});
+  }
+  saveMemos();renderMemoPage();
+  showToast('メモを保存しました');
+  closeOv('memoOv');
+}
+
+function memoToTask(){
+  const body=document.getElementById('memo_body').value.trim();
+  if(!body){showToast('メモを入力してください');return;}
+  const custEl=document.getElementById('memo_tel_cust');
+  const cust=custEl?custEl.value.trim():'';
+  // 先にメモ保存
+  memos.unshift({id:uid(),body,cat:'tel',cust,created:new Date().toISOString()});
+  saveMemos();
+  // タスク作成
+  tasks.unshift({id:uid(),src:'tel',title:body,cust,due:todayStr(),st:'todo',done:false,created:Date.now(),subs:[],completedAt:''});
+  save();renderTasks();renderMemoPage();
+  showToast('📋 タスクに追加しました');
+  closeOv('memoOv');
+}
+
+function renderMemoList(){
+  const list=document.getElementById('memoList');
+  if(!list)return;
+  list.innerHTML='';
+}
+
+function renderMemoPage(){
+  const list=document.getElementById('memoPageList');
+  if(!list)return;
+  const filtered=memoFilter==='all'?memos:memos.filter(m=>(m.cat||'think')===memoFilter);
+  if(!filtered.length){
+    list.innerHTML=`<div class="memo-empty">📝 メモがありません<br><br><button class="btn btn-p" style="width:160px;margin-top:8px;" onclick="openNewMemo()">＋ 新規メモ</button></div>`;
+    return;
+  }
+  const catInfo={think:{icon:'💭',cls:'cat-think'},tel:{icon:'📞',cls:'cat-tel'}};
+  list.innerHTML=filtered.map(m=>{
+    const ci=catInfo[m.cat||'think'];
+    return`<div class="memo-card" onclick="openEditMemo('${m.id}')">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat ${ci.cls}">${ci.icon} ${m.cat==='tel'?'電話メモ':'考え事'}</span>
+        ${m.cust?`<span style="font-size:10px;color:var(--text3);">${esc(m.cust)}</span>`:''}
+      </div>
+      <div class="memo-card-body">${esc(m.body)}</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>${m.created.slice(0,10).replace(/-/g,'/')}</span>
+        <div style="display:flex;gap:6px;">
+          ${m.cat==='tel'?`<button onclick="event.stopPropagation();memoToTaskById('${m.id}')" style="font-size:10px;font-weight:700;color:var(--amber);border:none;background:none;cursor:pointer;">📋 タスク化</button>`:''}
+          <button onclick="event.stopPropagation();deleteMemoNote('${m.id}')" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function memoToTaskById(id){
+  const m=memos.find(m=>m.id===id);if(!m)return;
+  tasks.unshift({id:uid(),src:'tel',title:m.body,cust:m.cust||'',due:todayStr(),st:'todo',done:false,created:Date.now(),subs:[],completedAt:''});
+  save();renderTasks();
+  showToast('📋 タスクに追加しました');
+}
+
+function deleteMemoNote(id){
+  memos=memos.filter(m=>m.id!==id);
+  saveMemos();renderMemoList();renderMemoPage();
+}
 
 function save(){localStorage.setItem(SK,JSON.stringify({tasks,apos}));}
 function load(){
@@ -754,7 +1061,10 @@ function showTab(t){
   if(t==='sched')renderSched();
   if(t==='mail')renderMailList();
   if(t==='dev')renderDev();
+  if(t==='memo')renderMemoPage();
 }
+
+/* ════ MEMO PAGE ════ */
 
 function loadApiKey(){
   anthropicApiKey=localStorage.getItem('enkou_api_key')||'';
@@ -907,7 +1217,8 @@ function taskCardHtml(t,isDragEnabled=true){
   let bar='';
   if(ss){const pct=Math.round(ss.done/ss.total*100);const al=ss.done===ss.total;bar=`<div class="spb"><div class="spbw"><div class="spbf${al?'':' pt'}" style="width:${pct}%"></div></div><span class="spbc${al?' al':''}">${ss.done}/${ss.total}</span></div>`;}
   return`<div class="tcard${t.done?' done':''}" id="tc_${t.id}" draggable="${isDragEnabled&&!t.done}" onclick="openTaskDet('${t.id}')"
-    data-id="${t.id}" ondragstart="onDragStart(event,'${t.id}')" ondragend="onDragEnd(event)">
+    data-id="${t.id}" ondragstart="onDragStart(event,'${t.id}')" ondragend="onDragEnd(event)"
+    ontouchstart="touchStartCard(event,'${t.id}')" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">${esc(t.title)}</div>
       <div class="tchk" onclick="event.stopPropagation();toggleTask('${t.id}')">
@@ -941,7 +1252,10 @@ function onDragEnd(e){
   document.querySelectorAll('.kanban-col.drag-over').forEach(el=>el.classList.remove('drag-over'));
 }
 
+let dropZonesReady=false;
 function setupDropZones(){
+  if(dropZonesReady)return;
+  dropZonesReady=true;
   document.querySelectorAll('.kanban-col').forEach(col=>{
     const st=col.id.replace('col-','');
     col.addEventListener('dragover',e=>{e.preventDefault();col.classList.add('drag-over');});
@@ -951,20 +1265,16 @@ function setupDropZones(){
       if(dragId&&st){moveStatus(dragId,st);dragId=null;}
     });
   });
-
-  // スマホ長押しドラッグ（Touch Events）
-  document.querySelectorAll('.tcard[draggable="true"]').forEach(card=>{
-    card.addEventListener('touchstart',e=>{
-      const id=card.dataset.id;
-      longPressTimer=setTimeout(()=>{
-        card.classList.add('dragging');
-        setupTouchDrag(card,id);
-      },500);
-    },{passive:true});
-    card.addEventListener('touchend',()=>{clearTimeout(longPressTimer);card.classList.remove('dragging');});
-    card.addEventListener('touchmove',()=>{clearTimeout(longPressTimer);},{passive:true});
-  });
 }
+
+function touchStartCard(e,id){
+  longPressTimer=setTimeout(()=>{
+    const card=document.getElementById('tc_'+id);
+    if(card){card.classList.add('dragging');setupTouchDrag(card,id);}
+  },500);
+}
+function touchEndCard(e){clearTimeout(longPressTimer);}
+function touchMoveCard(e){clearTimeout(longPressTimer);}
 
 function setupTouchDrag(card,id){
   let clone=null;
@@ -1014,30 +1324,20 @@ function collapseCol(k){expandedCols[k]=false;renderTasks();}
 function toggleDoneSection(k){expandedDone[k]=!expandedDone[k];renderTasks();}
 
 function openCaptureType(type){
-  curSrc=type==='見積'?'ins':'tel';
-  curSt='todo';formSubs=[];
-  document.getElementById('cs_icon').textContent=type==='見積'?'📋':'📞';
-  document.getElementById('cs_label').textContent=type;
+  curSrc='self';curSt='todo';formSubs=[];
   ['cs_title','cs_cust','cs_memo'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   const dueEl=document.getElementById('cs_due');if(dueEl)dueEl.value=todayStr();
   const subInp=document.getElementById('sub_inp');if(subInp)subInp.value='';
   document.getElementById('sub_list').innerHTML='';
-  document.querySelectorAll('.stsel').forEach(b=>b.classList.toggle('on',b.dataset.st==='todo'));
+  document.querySelectorAll('.task-preset').forEach(b=>b.classList.remove('selected'));
   openOv('captureOv');
-  // PCのみフォーカス（スマホはキーボードで画面が押し上がるのを防ぐ）
   if(window.innerWidth>768){setTimeout(()=>document.getElementById('cs_title').focus(),250);}
 }
-function openCapture(src){
-  curSrc=src;curSt='todo';formSubs=[];
-  const s=SRC[src]||SRC.self;
-  document.getElementById('cs_icon').textContent=s.icon;
-  document.getElementById('cs_label').textContent=s.label;
-  ['cs_title','cs_cust','cs_memo'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('cs_due').value=todayStr();
-  document.getElementById('sub_inp').value='';
-  document.getElementById('sub_list').innerHTML='';
-  document.querySelectorAll('.stsel').forEach(b=>b.classList.toggle('on',b.dataset.st==='todo'));
-  openOv('captureOv');setTimeout(()=>document.getElementById('cs_title').focus(),250);
+function openCapture(src){openCaptureType(src);}
+function setPreset(text){
+  const inp=document.getElementById('cs_title');
+  if(inp)inp.value=text;
+  document.querySelectorAll('.task-preset').forEach(b=>b.classList.toggle('selected',b.textContent.includes(text.slice(0,4))));
 }
 function pickSt(st,btn){curSt=st;document.querySelectorAll('.stsel').forEach(b=>b.classList.toggle('on',b===btn));}
 function addFormSub(){const i=document.getElementById('sub_inp');const v=i.value.trim();if(!v)return;formSubs.push({id:uid(),text:v,done:false});i.value='';renderFormSubList();i.focus();}
@@ -1075,7 +1375,7 @@ function renderTaskDet(){
   const s=SRC[t.src]||SRC.self;const st=STATUSES[t.st||'todo'];
   const subs=t.subs||[];const dc=subs.filter(s=>s.done).length;
   const subItems=subs.map(sub=>`<div class="sdi${sub.done?' dsd':''}"><div class="sdc" onclick="toggleSub('${t.id}','${sub.id}')"><svg class="sdci" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="sdit">${esc(sub.text)}</span><button class="sdd" onclick="delSub('${t.id}','${sub.id}')">×</button></div>`).join('');
-  const stBtns=Object.entries(STATUSES).map(([k,v])=>`<button class="mv-btn${t.st===k?' cur':''}" ${t.st===k?'disabled':''} style="${t.st!==k?`background:${v.bg};color:${v.color};border-color:${v.color}`:''}" onclick="moveStatus('${t.id}','${k}');renderTaskDet()">${v.label}</button>`).join('');
+  const stBtns=Object.entries(STATUSES).map(([k,v])=>`<button class="mv-btn${t.st===k?` cur cur-${k}`:''}" ${t.st===k?'disabled':''} onclick="moveStatus('${t.id}','${k}');renderTaskDet()">${v.label}</button>`).join('');
   document.getElementById('taskDetSheet').innerHTML=`
     <div class="handle"></div>
     <span class="dbadge" style="background:${st.bg};color:${st.color}">${st.label}</span>
@@ -1146,25 +1446,52 @@ function setDevFilter(f,btn){devFilter=f;document.querySelectorAll('.dev-filter'
 function openDevCapture(){openCapture('self');setTimeout(()=>{curSt='todo';document.querySelectorAll('.stsel').forEach(b=>b.classList.toggle('on',b.dataset.st==='todo'));},150);}
 
 /* SCHEDULE */
-function getWeekDates(offset=0){const d=new Date();d.setDate(d.getDate()-d.getDay()+1+offset*7);return Array.from({length:7},(_,i)=>{const dd=new Date(d);dd.setDate(d.getDate()+i);return dd.toISOString().slice(0,10);});}
-function moveWeek(dir){if(dir===0)weekOffset=0;else weekOffset+=dir;renderSched();}
+/* ════ SCHEDULE（月表示） ════ */
+function moveMonth(dir){if(dir===0)monthOffset=0;else monthOffset+=dir;renderSched();}
 function renderSched(){
-  const days=getWeekDates(weekOffset),td=todayStr();
-  const[y,m]=days[0].split('-');
-  document.getElementById('weekLabel').textContent=`${+y}年${+m}月`;
+  const now=new Date();
+  const base=new Date(now.getFullYear(),now.getMonth()+monthOffset,1);
+  const y=base.getFullYear(),m=base.getMonth();
+  const td=todayStr();
+  document.getElementById('weekLabel').textContent=`${y}年${m+1}月`;
+
+  const firstDay=(new Date(y,m,1).getDay()+6)%7; // 月曜始まり
+  const daysInMonth=new Date(y,m+1,0).getDate();
   const DN=['月','火','水','木','金','土','日'];
-  document.getElementById('weekGrid').innerHTML=days.map((d,i)=>{
-    const isToday=d===td,num=+d.split('-')[2];
-    const dayEvts=[
-      ...apos.filter(a=>a.date===d).map(a=>`<div class="wday-evt ${a.type}" title="${esc(a.title)}">${fmtTime(a.start)} ${esc(a.title)}</div>`),
-      ...tasks.filter(t=>!t.done&&t.due===d&&t.st==='todo').map(t=>`<div class="wday-evt" style="background:#fff1f0;color:#c0392b;">🔴 ${esc(t.title)}</div>`),
-    ];
-    const shown=dayEvts.slice(0,2);if(dayEvts.length>2)shown.push(`<div class="wday-evt more">+${dayEvts.length-2}</div>`);
-    return`<div class="wday${isToday?' today':''}" onclick="selectDay('${d}')" style="${selDay_===d?'outline:2px solid var(--blue);':''}">
-      ${isToday?`<div class="wday-circle">${num}</div>`:`<div class="wday-name">${DN[i]}</div><div class="wday-num">${num}</div>`}
-      <div class="wday-events">${shown.join('')}</div>
+
+  let html=DN.map(d=>`<div class="month-day-name">${d}</div>`).join('');
+
+  // 前月の空白
+  for(let i=0;i<firstDay;i++){
+    const pd=new Date(y,m,-(firstDay-i-1));
+    html+=`<div class="mday other-month"><div class="mday-num">${pd.getDate()}</div></div>`;
+  }
+
+  for(let d=1;d<=daysInMonth;d++){
+    const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday=ds===td;
+    const isSel=selDay_===ds;
+    const hasApo=apos.some(a=>a.date===ds);
+    const hasTask=tasks.some(t=>!t.done&&t.due===ds);
+    const hasDone=tasks.some(t=>t.done&&t.completedAt&&t.completedAt.slice(0,10)===ds);
+    let dots='';
+    if(hasApo)dots+=`<div class="mday-dot apo"></div>`;
+    if(hasTask)dots+=`<div class="mday-dot task"></div>`;
+    if(hasDone)dots+=`<div class="mday-dot done"></div>`;
+    html+=`<div class="mday${isToday?' today':''}${isSel?' selected':''}" onclick="selectDay('${ds}')">
+      <div class="mday-num">${d}</div>
+      <div class="mday-dots">${dots}</div>
     </div>`;
-  }).join('');
+  }
+
+  // 後月の空白（6行になるよう調整）
+  const total=firstDay+daysInMonth;
+  const remain=(7-total%7)%7;
+  for(let i=1;i<=remain;i++){
+    html+=`<div class="mday other-month"><div class="mday-num">${i}</div></div>`;
+  }
+
+  document.getElementById('monthGrid').innerHTML=html;
   if(!selDay_)selDay_=td;
   renderDayDetail(selDay_);
 }
@@ -1272,31 +1599,67 @@ document.addEventListener('keydown',e=>{
 
 function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1c1a16;color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';setTimeout(()=>t.style.opacity='0',2000);}
 
-/* 音声入力 */
+/* FABダイヤル */
+let fabOpen=false;
+function toggleFab(){
+  fabOpen=!fabOpen;
+  document.getElementById('fabMain').classList.toggle('open',fabOpen);
+  document.getElementById('fabItems').classList.toggle('open',fabOpen);
+}
+// 背景タップで閉じる
+document.addEventListener('click',e=>{
+  const wrap=document.getElementById('fabWrap');
+  if(fabOpen&&wrap&&!wrap.contains(e.target)){
+    fabOpen=false;
+    document.getElementById('fabMain').classList.remove('open');
+    document.getElementById('fabItems').classList.remove('open');
+  }
+});
+
+
 function startVoiceInput(targetId){
   const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SpeechRecognition){showToast('お使いのブラウザは音声入力非対応です');return;}
   const rec=new SpeechRecognition();
-  rec.lang='ja-JP';
-  rec.interimResults=false;
-  rec.maxAlternatives=1;
+  rec.lang='ja-JP';rec.interimResults=false;rec.maxAlternatives=1;
   const btn=document.getElementById('mic_btn');
   if(btn){btn.textContent='🔴';btn.style.background='#e74c3c';}
   rec.start();
   rec.onresult=e=>{
     const text=e.results[0][0].transcript;
     const inp=document.getElementById(targetId);
-    if(inp){inp.value=text;}
+    if(inp)inp.value=text;
     if(btn){btn.textContent='🎤';btn.style.background='var(--text)';}
     showToast('「'+text+'」と入力しました');
   };
-  rec.onerror=e=>{
-    if(btn){btn.textContent='🎤';btn.style.background='var(--text)';}
-    showToast('音声入力エラー：'+e.error);
+  rec.onerror=e=>{if(btn){btn.textContent='🎤';btn.style.background='var(--text)';}showToast('音声入力エラー：'+e.error);};
+  rec.onend=()=>{if(btn){btn.textContent='🎤';btn.style.background='var(--text)';}};
+}
+
+function fabVoiceInput(){
+  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SpeechRecognition){showToast('お使いのブラウザは音声入力非対応です');return;}
+  const fab=document.getElementById('fabMain');
+  const rec=new SpeechRecognition();
+  rec.lang='ja-JP';rec.interimResults=false;rec.maxAlternatives=1;
+  if(fab){fab.style.background='#e74c3c';fab.textContent='🔴';}
+  rec.start();
+  rec.onresult=e=>{
+    const text=e.results[0][0].transcript;
+    if(fab){fab.style.background='';fab.textContent='＋';}
+    const ov=document.getElementById('captureOv');
+    if(ov&&ov.classList.contains('open')){
+      const inp=document.getElementById('cs_title');
+      if(inp)inp.value=text;
+      showToast('「'+text+'」と入力しました');
+    } else {
+      tasks.unshift({id:uid(),src:'self',title:text,cust:'',due:todayStr(),st:'todo',done:false,created:Date.now(),subs:[],completedAt:''});
+      save();renderTasks();
+      showToast('✓「'+text+'」をタスクに追加しました');
+    }
   };
-  rec.onend=()=>{
-    if(btn){btn.textContent='🎤';btn.style.background='var(--text)';}
-  };
+  rec.onerror=e=>{if(fab){fab.style.background='';fab.textContent='＋';}showToast('エラー：'+e.error);};
+  rec.onend=()=>{if(fab){fab.style.background='';fab.textContent='＋';}};
 }
 
 /* ════ GITHUB AUTO PUSH ════ */
@@ -1358,8 +1721,8 @@ async function pushToGithub(){
   if(btn){btn.disabled=false;btn.textContent='⬆ 今すぐGitHubに反映';}
 }
 
-load();loadMailsFromStorage();loadApiKey();loadGhSettings();initSpTabs();renderTasks();renderSched();showTab('task');
+load();loadMailsFromStorage();loadApiKey();loadGhSettings();loadMemos();initSpTabs();renderTasks();renderSched();showTab('task');
 </script>
 
 
-</body></html>
+<div id="toast" style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgb(28, 26, 22); color: rgb(255, 255, 255); padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none;">メモを入力してください</div></body></html>
