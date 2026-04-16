@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)file:///C:/Users/nk0712/Downloads/enkou_app_dev_19.html -->
+<!-- saved from url=(0055)file:///C:/Users/nk0712/Downloads/enkou_app_dev_20.html -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -592,10 +592,10 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 </header>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="showTab(&#39;task&#39;)" id="tab-task">
-    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="display:none">0</span>
+  <button class="tab-btn" onclick="showTab(&#39;task&#39;)" id="tab-task">
+    <span class="ti">📋</span><span>タスク</span><span class="badge" id="task-badge" style="">2</span>
   </button>
-  <button class="tab-btn" onclick="showTab(&#39;deal&#39;)" id="tab-deal">
+  <button class="tab-btn active" onclick="showTab(&#39;deal&#39;)" id="tab-deal">
     <span class="ti">🏢</span><span>案件</span>
   </button>
   <button class="tab-btn" onclick="showTab(&#39;memo&#39;)" id="tab-memo">
@@ -620,13 +620,13 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 </div>
 
 <!-- TASK PAGE -->
-<div class="page active" id="page-task">
+<div class="page" id="page-task">
 
   <!-- 今すぐ始めるバー -->
   <div class="focus-now-bar" onclick="startFocusMode()">
     <div class="focus-now-preview">
       <div class="focus-now-label">🎯 今すぐ始める</div>
-      <div class="focus-now-title" id="focusNowTitle">なごみ　武田様　BCP商品提案</div>
+      <div class="focus-now-title" id="focusNowTitle">見積</div>
     </div>
     <button onclick="event.stopPropagation();openFocusSelect()" style="background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:&#39;Noto Sans JP&#39;,sans-serif;flex-shrink:0;">選択</button>
     <button class="focus-now-btn">▶ 開始</button>
@@ -655,13 +655,13 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   <div class="st-tabs" id="st-tabs-wrap">
     <div class="st-tab-list">
       <button class="st-tab t-todo active" onclick="switchSpTab(&#39;todo&#39;,this)">
-        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">0</span>
+        <span class="st-dot"></span><span>未対応</span><span class="st-cnt" id="sp-cnt-todo">2</span>
       </button>
       <button class="st-tab t-doing" onclick="switchSpTab(&#39;doing&#39;,this)">
-        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">1</span>
+        <span class="st-dot"></span><span>対応中</span><span class="st-cnt" id="sp-cnt-doing">0</span>
       </button>
       <button class="st-tab t-maker" onclick="switchSpTab(&#39;maker&#39;,this)">
-        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">4</span>
+        <span class="st-dot"></span><span>メーカー</span><span class="st-cnt" id="sp-cnt-maker">2</span>
       </button>
       <button class="st-tab t-customer" onclick="switchSpTab(&#39;customer&#39;,this)">
         <span class="st-dot"></span><span>お客様</span><span class="st-cnt" id="sp-cnt-customer">0</span>
@@ -670,17 +670,59 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
   </div>
 
   <!-- スマホ用縦ボード -->
-  <div class="sp-board" id="sp-board"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);font-size:13px;padding:20px;">🎉 お疲れ様です！<br><span style="font-size:11px;margin-top:4px;display:block;opacity:.7">このステータスのタスクはありません</span></div></div>
+  <div class="sp-board" id="sp-board"><div class="tcard" id="tc_mo0xdslrr3da" draggable="true" onclick="openTaskDet(&#39;mo0xdslrr3da&#39;)" data-id="mo0xdslrr3da" ondragstart="onDragStart(event,&#39;mo0xdslrr3da&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mo0xdslrr3da&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div class="tr1">
+      <div class="tct">見積</div>
+      <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mo0xdslrr3da&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mo0xdslrr3da&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">て</span><span style="font-size:9px;font-weight:700;color:#1d5fa8;background:#e8f2fb;padding:1px 5px;border-radius:4px;">📅 本日</span></div>
+    
+  </div><div class="tcard" id="tc_mo0xcju8ng55" draggable="true" onclick="openTaskDet(&#39;mo0xcju8ng55&#39;)" data-id="mo0xcju8ng55" ondragstart="onDragStart(event,&#39;mo0xcju8ng55&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mo0xcju8ng55&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div class="tr1">
+      <div class="tct">見積</div>
+      <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mo0xcju8ng55&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mo0xcju8ng55&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">テスト</span><span style="font-size:9px;color:var(--text3);">📅 4/22</span></div>
+    
+  </div></div>
 
   <!-- PC用カンバン -->
   <div class="kanban-wrap">
     <div class="kanban-col kcol-todo" id="col-todo">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">0</span></div>
-      <div class="kbody" id="body-todo"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);">🎉 お疲れ様です！</div></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">未対応</div></div></div><span class="kcnt" id="cnt-todo">2</span></div>
+      <div class="kbody" id="body-todo"><div class="tcard" id="tc_mo0xdslrr3da" draggable="true" onclick="openTaskDet(&#39;mo0xdslrr3da&#39;)" data-id="mo0xdslrr3da" ondragstart="onDragStart(event,&#39;mo0xdslrr3da&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mo0xdslrr3da&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div class="tr1">
+      <div class="tct">見積</div>
+      <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mo0xdslrr3da&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mo0xdslrr3da&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">て</span><span style="font-size:9px;font-weight:700;color:#1d5fa8;background:#e8f2fb;padding:1px 5px;border-radius:4px;">📅 本日</span></div>
+    
+  </div><div class="tcard" id="tc_mo0xcju8ng55" draggable="true" onclick="openTaskDet(&#39;mo0xcju8ng55&#39;)" data-id="mo0xcju8ng55" ondragstart="onDragStart(event,&#39;mo0xcju8ng55&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mo0xcju8ng55&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+    <div class="tr1">
+      <div class="tct">見積</div>
+      <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mo0xcju8ng55&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
+      <div class="tchk" onclick="event.stopPropagation();toggleTask(&#39;mo0xcju8ng55&#39;)">
+        <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">テスト</span><span style="font-size:9px;color:var(--text3);">📅 4/22</span></div>
+    
+  </div></div>
     </div>
     <div class="kanban-col kcol-doing" id="col-doing">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">1</span></div>
-      <div class="kbody" id="body-doing"><div class="tcard" id="tc_mnh9bvzrrojr" draggable="true" onclick="openTaskDet(&#39;mnh9bvzrrojr&#39;)" data-id="mnh9bvzrrojr" ondragstart="onDragStart(event,&#39;mnh9bvzrrojr&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mnh9bvzrrojr&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">対応中</div></div></div><span class="kcnt" id="cnt-doing">0</span></div>
+      <div class="kbody" id="body-doing"><div class="kempty" style="background:var(--greenbg);border-color:var(--green);color:var(--green);">🎉 お疲れ様です！</div><div style="margin-top:8px;">
+          <button class="done-toggle" onclick="toggleDoneSection(&#39;doing&#39;)"><span>✅ 完了済み 1件</span><span>▼</span></button>
+          <div class="done-section" style=""><div class="tcard done" id="tc_mnh9bvzrrojr" draggable="false" onclick="openTaskDet(&#39;mnh9bvzrrojr&#39;)" data-id="mnh9bvzrrojr" ondragstart="onDragStart(event,&#39;mnh9bvzrrojr&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mnh9bvzrrojr&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">18J</div>
       <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mnh9bvzrrojr&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
@@ -688,12 +730,13 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span></span><span style="font-size:9px;font-weight:700;color:#e74c3c;background:#fff1f0;padding:1px 5px;border-radius:4px;">⚠️ 4/2</span></div>
+    
     
   </div></div>
+        </div></div>
     </div>
     <div class="kanban-col kcol-maker" id="col-maker">
-      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">4</span></div>
+      <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">メーカー<br>確認中</div></div></div><span class="kcnt" id="cnt-maker">2</span></div>
       <div class="kbody" id="body-maker"><div class="tcard" id="tc_mnikwl5ss5r3" draggable="true" onclick="openTaskDet(&#39;mnikwl5ss5r3&#39;)" data-id="mnikwl5ss5r3" ondragstart="onDragStart(event,&#39;mnikwl5ss5r3&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mnikwl5ss5r3&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">なごみ　武田様　BCP商品提案</div>
@@ -714,7 +757,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">あつたファミリア</span><span style="font-size:9px;font-weight:700;color:#e74c3c;background:#fff1f0;padding:1px 5px;border-radius:4px;">⚠️ 4/7</span></div>
     <div class="spb"><div class="spbw"><div class="spbf pt" style="width:0%"></div></div><span class="spbc">0/2</span></div>
-  </div><div class="tcard" id="tc_mni9qt6dj35a" draggable="true" onclick="openTaskDet(&#39;mni9qt6dj35a&#39;)" data-id="mni9qt6dj35a" ondragstart="onDragStart(event,&#39;mni9qt6dj35a&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mni9qt6dj35a&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+  </div><div style="margin-top:8px;">
+          <button class="done-toggle" onclick="toggleDoneSection(&#39;maker&#39;)"><span>✅ 完了済み 2件</span><span>▼</span></button>
+          <div class="done-section" style=""><div class="tcard done" id="tc_mni9qt6dj35a" draggable="false" onclick="openTaskDet(&#39;mni9qt6dj35a&#39;)" data-id="mni9qt6dj35a" ondragstart="onDragStart(event,&#39;mni9qt6dj35a&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mni9qt6dj35a&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">見積</div>
       <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mni9qt6dj35a&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
@@ -722,9 +767,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">まこと介護医療院</span><span style="font-size:9px;font-weight:700;color:#e74c3c;background:#fff1f0;padding:1px 5px;border-radius:4px;">⚠️ 4/6</span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">まこと介護医療院</span></div>
     <div class="spb"><div class="spbw"><div class="spbf pt" style="width:0%"></div></div><span class="spbc">0/7</span></div>
-  </div><div class="tcard" id="tc_mner20jvedpi" draggable="true" onclick="openTaskDet(&#39;mner20jvedpi&#39;)" data-id="mner20jvedpi" ondragstart="onDragStart(event,&#39;mner20jvedpi&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mner20jvedpi&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
+  </div><div class="tcard done" id="tc_mner20jvedpi" draggable="false" onclick="openTaskDet(&#39;mner20jvedpi&#39;)" data-id="mner20jvedpi" ondragstart="onDragStart(event,&#39;mner20jvedpi&#39;)" ondragend="onDragEnd(event)" ontouchstart="touchStartCard(event,&#39;mner20jvedpi&#39;)" ontouchend="touchEndCard(event)" ontouchmove="touchMoveCard(event)">
     <div class="tr1">
       <div class="tct">見積</div>
       <button onclick="event.stopPropagation();openFocusModeForTask(&#39;mner20jvedpi&#39;)" style="font-size:10px;padding:2px 6px;border-radius:4px;border:none;background:var(--bluebg);color:var(--blue);cursor:pointer;flex-shrink:0;">⏱</button>
@@ -732,9 +777,10 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
         <svg class="chki" width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M1 3L3 5.5L7 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">こまきのもり</span><span style="font-size:9px;font-weight:700;color:#e74c3c;background:#fff1f0;padding:1px 5px;border-radius:4px;">⚠️ 3/31</span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3px;"><span style="font-size:10px;color:var(--text3);">こまきのもり</span></div>
     <div class="spb"><div class="spbw"><div class="spbf pt" style="width:0%"></div></div><span class="spbc">0/2</span></div>
   </div></div>
+        </div></div>
     </div>
     <div class="kanban-col kcol-customer" id="col-customer">
       <div class="khead"><div class="khead-left"><span class="kdot"></span><div><div class="kname">お客様<br>確認中</div></div></div><span class="kcnt" id="cnt-customer">0</span></div>
@@ -747,7 +793,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
 </div>
 
 <!-- DEAL PAGE -->
-<div class="page" id="page-deal">
+<div class="page active" id="page-deal">
   <div class="deal-page-wrap">
     <!-- ビュー切替 -->
     <div class="deal-toolbar">
@@ -758,9 +804,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <button class="dev-add-btn" onclick="openDealAdd()">＋ 案件</button>
     </div>
     <!-- フェーズフィルター -->
-    <div class="deal-phase-filter" id="dealPhaseFilter"></div>
+    <div class="deal-phase-filter" id="dealPhaseFilter"><button class="mf-btn on" onclick="setDealPhaseFilter(&#39;all&#39;,this)">すべて</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;0&#39;,this)">アプローチ</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;1&#39;,this)">提案</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;2&#39;,this)">見積</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;3&#39;,this)">フォロー</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;4&#39;,this)">交渉</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;5&#39;,this)">契約</button><button class="mf-btn" onclick="setDealPhaseFilter(&#39;6&#39;,this)">失注</button></div>
     <!-- 一覧ビュー -->
-    <div id="deal-list-view" style="flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:10px;"></div>
+    <div id="deal-list-view" style="flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:10px;"><div class="deal-empty">🏢 案件がありません<br><br><button class="btn btn-p" style="width:160px;margin-top:8px;" onclick="openDealAdd()">＋ 案件を追加</button></div></div>
     <!-- パイプラインビュー -->
     <div id="deal-pipe-view" style="display:none;flex:1;overflow-x:auto;padding:10px;display:flex;gap:10px;"></div>
   </div>
@@ -776,7 +822,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     <label class="flbl">顧客名</label>
     <input class="finp" id="deal_cust" type="text" placeholder="例：医療法人清水会" autocomplete="off">
     <label class="flbl">フェーズ</label>
-    <select class="finp" id="deal_phase"></select>
+    <select class="finp" id="deal_phase"><option value="0">アプローチ</option><option value="1">提案</option><option value="2">見積</option><option value="3">フォロー</option><option value="4">交渉</option><option value="5">契約</option><option value="6">失注</option></select>
     <label class="flbl">目標完了日</label>
     <input class="finp" id="deal_due" type="date">
     <label class="flbl">メモ</label>
@@ -885,7 +931,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <div class="mday-dots"><div class="mday-dot done"></div></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-02&#39;)">
       <div class="mday-num">2</div>
-      <div class="mday-dots"><div class="mday-dot apo"></div><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
+      <div class="mday-dots"><div class="mday-dot apo"></div><div class="mday-dot done"></div></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-03&#39;)">
       <div class="mday-num">3</div>
       <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
@@ -897,7 +943,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <div class="mday-dots"></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-06&#39;)">
       <div class="mday-num">6</div>
-      <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
+      <div class="mday-dots"><div class="mday-dot done"></div></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-07&#39;)">
       <div class="mday-num">7</div>
       <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
@@ -925,9 +971,9 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     </div><div class="mday" onclick="selectDay(&#39;2026-04-15&#39;)">
       <div class="mday-num">15</div>
       <div class="mday-dots"><div class="mday-dot done"></div></div>
-    </div><div class="mday today selected" onclick="selectDay(&#39;2026-04-16&#39;)">
+    </div><div class="mday today" onclick="selectDay(&#39;2026-04-16&#39;)">
       <div class="mday-num">16</div>
-      <div class="mday-dots"></div>
+      <div class="mday-dots"><div class="mday-dot task"></div><div class="mday-dot done"></div></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-17&#39;)">
       <div class="mday-num">17</div>
       <div class="mday-dots"></div>
@@ -945,7 +991,7 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <div class="mday-dots"></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-22&#39;)">
       <div class="mday-num">22</div>
-      <div class="mday-dots"></div>
+      <div class="mday-dots"><div class="mday-dot task"></div></div>
     </div><div class="mday" onclick="selectDay(&#39;2026-04-23&#39;)">
       <div class="mday-num">23</div>
       <div class="mday-dots"></div>
@@ -976,8 +1022,8 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
     <div class="apo-list"><div style="font-size:12px;color:var(--text3);margin-bottom:10px;">予定なし</div></div>
     <button class="add-apo-btn" onclick="openApo(&#39;2026-04-16&#39;)">＋ アポ・予定を追加</button>
     <div style="font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.06em;margin-bottom:6px;">本日のタスク</div>
-    <div class="todo-day-list"><div style="font-size:12px;color:var(--text3);">期限タスクなし</div></div>
-    
+    <div class="todo-day-list"><div class="todo-item"><span class="todo-txt">見積</span><span class="todo-st" style="background:#fff1f0;color:#c0392b;">未対応</span></div></div>
+    <div style="font-size:11px;font-weight:700;color:var(--green);letter-spacing:.06em;margin:12px 0 6px;">✅ 完了済み</div><div class="todo-day-list"><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ 見積</span><span style="font-size:10px;color:var(--text3);">まこと介護医療院</span></div><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ 18J</span></div><div class="todo-item" style="opacity:.6;"><span class="todo-txt" style="text-decoration:line-through;">✅ 見積</span><span style="font-size:10px;color:var(--text3);">こまきのもり</span></div></div>
   </div>
   </div>
 </div>
@@ -994,7 +1040,236 @@ header{background:var(--text);color:#fff;height:48px;display:flex;align-items:ce
       <button class="mf-btn" onclick="setMemoFilter(&#39;think&#39;,this)">💭 考え事</button>
       <button class="mf-btn" onclick="setMemoFilter(&#39;tel&#39;,this)">📞 電話メモ</button>
     </div>
-    <div class="memo-list" id="memoPageList"></div>
+    <div class="memo-list" id="memoPageList"><div class="memo-card" onclick="openEditMemo(&#39;mnr61200mlzf&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">メールアドレス管理表の方がよき？
+一斉メール配信できるように</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr61200mlzf&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr61200mlzf&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnr3x0phwru5&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">ウェルコートみずほ</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr3x0phwru5&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr3x0phwru5&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnr3wuzh6goc&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">あま恵寿荘</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr3wuzh6goc&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr3wuzh6goc&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnr3wgd6s953&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">豊田みのり福祉会</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr3wgd6s953&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr3wgd6s953&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnr3w156ob9q&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">清須の里　→　(福祉)西春日井福祉会　事業推進課　伊藤</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr3w156ob9q&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr3w156ob9q&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnr3vt57vr8k&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">なのはな園　くろやさん</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/09</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnr3vt57vr8k&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnr3vt57vr8k&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mniiooonpfgr&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">タスクを得意先ごとで見たい。
+日程表示ほしい
+TELアポリストも欲しい</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/03</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mniiooonpfgr&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mniiooonpfgr&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mni9vedyfo5m&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-tel">📞 電話メモ</span>
+      </div>
+      <div class="memo-card-body">まこと介護医療院
+毎月12ケース　ケース30箱
+360ケース
+
+18ケース　遠興換算</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/03</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mni9vedyfo5m&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mni9vedyfo5m&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnfd6zl053qn&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">自動化案件
+・価格改定のメール文自動精査</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/04/01</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnfd6zl053qn&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnfd6zl053qn&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnes94ubtp2i&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">アラート機能
+３日たっても何もなければ強調</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnes94ubtp2i&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnes94ubtp2i&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnerro8jacfh&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">ゼロの時も赤表示されるから、それはなくしたいかも</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnerro8jacfh&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnerro8jacfh&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnerqpme1xb1&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">4/1 
+0:25に記載メモ
+日付変わらない？？</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnerqpme1xb1&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnerqpme1xb1&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnerihdlhj70&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">メーカーとお客様と言う記載になってるので、しっかり確認中まで入って欲しい</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnerihdlhj70&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnerihdlhj70&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnerg6o0afpq&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">データが壊れる可能性
+上限はどれくらい
+エラーが起きたらどうなる
+個人利用であれば大丈夫。
+これを全社で共有するとなったときのメリットデメリットそもそもできるのか</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnerg6o0afpq&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnerg6o0afpq&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mnerclcezujg&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">口頭でやれるともっと便利。
+得意先
+内容
+期限
+担当者をキーフレーズにして、メモ内容から自動取得してもらって、タスク化ができるとまた効率化</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mnerclcezujg&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mnerclcezujg&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mner826n2wrk&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">① タスク一覧があるといいかも
+②長期的な案件はどうする？
+③週間データとして出力できると報告が楽。</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mner826n2wrk&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mner826n2wrk&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div><div class="memo-card" onclick="openEditMemo(&#39;mner11ygq0aa&#39;)">
+      <div style="display:flex;align-items:center;gap:4px;margin-bottom:5px;">
+        <span class="memo-card-cat cat-think">💭 考え事</span>
+      </div>
+      <div class="memo-card-body">変更点
+① アポ。タスクを修正できるように変更。
+②スライドで画面変更
+③ PC画面ではより使いやすい機能を設ける。
+例えば、顧客管理や目標管理予算管理など</div>
+      <div class="memo-card-date" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span>2026/03/31</span>
+        <div style="display:flex;gap:6px;">
+          <button onclick="event.stopPropagation();openMemoAssign(&#39;mner11ygq0aa&#39;)" style="font-size:10px;font-weight:700;color:var(--blue);background:var(--bluebg);border:none;padding:3px 8px;border-radius:5px;cursor:pointer;">振り分け</button>
+          <button onclick="event.stopPropagation();deleteMemoNote(&#39;mner11ygq0aa&#39;)" style="font-size:10px;color:var(--text3);border:none;background:none;cursor:pointer;">削除</button>
+        </div>
+      </div>
+    </div></div>
   </div>
 </div>
 
@@ -2199,7 +2474,7 @@ function loadDeals(){
   try{phases=JSON.parse(localStorage.getItem('enkou_phases')||'null')||[...DEFAULT_PHASES];}catch{phases=[...DEFAULT_PHASES];}
   if(!phases.includes('失注'))phases.push('失注');
 }
-function saveDeals(){localStorage.setItem('enkou_deals',JSON.stringify(deals));}
+function saveDeals(){localStorage.setItem('enkou_deals',JSON.stringify(deals));autoSyncToSupabase();}
 function savePhaseSettings(){
   const inputs=document.querySelectorAll('#phaseEditList input');
   phases=[...inputs].map(i=>i.value.trim()).filter(v=>v);
@@ -3554,17 +3829,19 @@ async function syncToSupabase(auto=false){
     const taskData=tasks.map(t=>({id:t.id,src:t.src||'',title:t.title||'',cust:t.cust||'',due:t.due||'',memo:t.memo||'',st:t.st||'todo',done:t.done||false,completed_at:t.completedAt||'',created:t.created||Date.now(),subs:t.subs||[]}));
     const apoData=apos.map(a=>({id:a.id,type:a.type||'',date:a.date||'',start_time:a.start||'',end_time:a.end||'',title:a.title||'',place:a.place||'',memo:a.memo||'',gcal_id:a.gcalId||''}));
     const memoData=memos.map(m=>({id:m.id,body:m.body||'',cat:m.cat||'think',cust:m.cust||'',created:m.created||'',updated:m.updated||''}));
-    // 削除してから追加
+    const dealData=deals.map(d=>({id:d.id,name:d.name||'',cust:d.cust||'',phase:d.phase||0,due:d.due||'',memo:d.memo||'',milestones:d.milestones||[],created:d.created||'',updated:d.updated||''}));
     const dH={'apikey':sbKey,'Authorization':`Bearer ${sbKey}`,'Content-Type':'application/json'};
     await Promise.all([
       fetch(`${sbUrl}/rest/v1/tasks?id=neq.___`,{method:'DELETE',headers:dH}),
       fetch(`${sbUrl}/rest/v1/apos?id=neq.___`,{method:'DELETE',headers:dH}),
-      fetch(`${sbUrl}/rest/v1/memos?id=neq.___`,{method:'DELETE',headers:dH})
+      fetch(`${sbUrl}/rest/v1/memos?id=neq.___`,{method:'DELETE',headers:dH}),
+      fetch(`${sbUrl}/rest/v1/deals?id=neq.___`,{method:'DELETE',headers:dH}),
     ]);
     await Promise.all([
       taskData.length?fetch(`${sbUrl}/rest/v1/tasks`,{method:'POST',headers:sbH(),body:JSON.stringify(taskData)}):Promise.resolve(),
       apoData.length?fetch(`${sbUrl}/rest/v1/apos`,{method:'POST',headers:sbH(),body:JSON.stringify(apoData)}):Promise.resolve(),
-      memoData.length?fetch(`${sbUrl}/rest/v1/memos`,{method:'POST',headers:sbH(),body:JSON.stringify(memoData)}):Promise.resolve()
+      memoData.length?fetch(`${sbUrl}/rest/v1/memos`,{method:'POST',headers:sbH(),body:JSON.stringify(memoData)}):Promise.resolve(),
+      dealData.length?fetch(`${sbUrl}/rest/v1/deals`,{method:'POST',headers:sbH(),body:JSON.stringify(dealData)}):Promise.resolve(),
     ]);
     if(!auto)showToast('✓ クラウドに保存しました');
   }catch(e){if(!auto)showToast('エラー：'+e.message);}
@@ -3574,18 +3851,20 @@ async function syncToSupabase(auto=false){
 async function syncFromSupabase(auto=false){
   if(!sbUrl||!sbKey){if(!auto)showToast('Supabase設定を完了してください');return;}
   if(isSyncing)return;
+  // オーバーレイが開いている間は自動同期をスキップ
+  if(auto&&document.querySelector('.overlay.open'))return;
   if(!auto)showToast('クラウドから取得中…');
   try{
     const h={'apikey':sbKey,'Authorization':`Bearer ${sbKey}`};
-    const [tRes,aRes,mRes]=await Promise.all([
+    const [tRes,aRes,mRes,dRes]=await Promise.all([
       fetch(`${sbUrl}/rest/v1/tasks?select=*&order=created.desc`,{headers:h}),
       fetch(`${sbUrl}/rest/v1/apos?select=*`,{headers:h}),
-      fetch(`${sbUrl}/rest/v1/memos?select=*&order=created.desc`,{headers:h})
+      fetch(`${sbUrl}/rest/v1/memos?select=*&order=created.desc`,{headers:h}),
+      fetch(`${sbUrl}/rest/v1/deals?select=*`,{headers:h}),
     ]);
-    const [tData,aData,mData]=await Promise.all([tRes.json(),aRes.json(),mRes.json()]);
+    const [tData,aData,mData,dData]=await Promise.all([tRes.json(),aRes.json(),mRes.json(),dRes.json()]);
     let changed=false;
     if(Array.isArray(tData)){
-      // localStorageに直接保存（save()を呼ばない）
       tasks=tData.map(t=>({id:t.id,src:t.src,title:t.title,cust:t.cust,due:t.due,memo:t.memo,st:t.st,done:t.done,completedAt:t.completed_at,created:t.created,subs:t.subs||[]}));
       localStorage.setItem(SK,JSON.stringify({tasks,apos}));
       renderTasks();changed=true;
@@ -3593,8 +3872,6 @@ async function syncFromSupabase(auto=false){
     if(Array.isArray(aData)){
       apos=aData.map(a=>({id:a.id,type:a.type,date:a.date,start:a.start_time,end:a.end_time,title:a.title,place:a.place,memo:a.memo,gcalId:a.gcal_id}));
       localStorage.setItem(SK,JSON.stringify({tasks,apos}));
-      renderSched();
-      if(document.getElementById('page-apo')?.classList.contains('active'))renderApoPage();
       changed=true;
     }
     if(Array.isArray(mData)){
@@ -3603,7 +3880,13 @@ async function syncFromSupabase(auto=false){
       if(document.getElementById('page-memo')?.classList.contains('active'))renderMemoPage();
       changed=true;
     }
-    if(!auto&&changed)showToast(`✓ 取得完了（タスク${tasks.length}件）`);
+    if(Array.isArray(dData)){
+      deals=dData.map(d=>({id:d.id,name:d.name,cust:d.cust,phase:d.phase,due:d.due,memo:d.memo,milestones:d.milestones||[],created:d.created,updated:d.updated}));
+      localStorage.setItem('enkou_deals',JSON.stringify(deals));
+      if(document.getElementById('page-deal')?.classList.contains('active'))renderDealPage();
+      changed=true;
+    }
+    if(!auto&&changed)showToast(`✓ 取得完了（タスク${tasks.length}・案件${deals.length}件）`);
   }catch(e){if(!auto)showToast('エラー：'+e.message);}
 }
 
